@@ -170,6 +170,35 @@ h3 {
   margin: 0;
 }
 
+blockquote {
+  margin: 0 0 1.5rem;
+  padding: 0 0 0 1rem;
+  border-left: 2px solid var(--accent);
+  color: var(--fg);
+  font-family: Fraunces, Georgia, serif;
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+blockquote cite {
+  display: block;
+  margin-top: 0.6rem;
+  color: var(--muted);
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 0.8125rem;
+  font-style: normal;
+}
+
+.press {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.press li {
+  margin: 0 0 0.45rem;
+}
+
 footer {
   display: flex;
   justify-content: space-between;

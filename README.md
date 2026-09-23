@@ -1,6 +1,6 @@
 # Mark Laughery — Portfolio
 
-Personal site for [mark laughery](https://github.com/mlaugh4). Live at [mlaugh4.github.io/portfolio](https://mlaugh4.github.io/portfolio/).
+Personal site for Mark Laughery, Principal UX. Live at [mlaugh4.github.io/portfolio](https://mlaugh4.github.io/portfolio/).
 
 ## Local preview
 
