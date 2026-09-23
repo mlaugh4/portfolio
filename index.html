@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mark Laughery — Design &amp; engineering</title>
+    <meta
+      name="description"
+      content="Portfolio of Mark Laughery — designer and engineer. Pear Med, Coordinote, and selected product work."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Sans:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip" href="#work">Skip to work</a>
+    <header class="site-header">
+      <p class="mark">Mark Laughery</p>
+      <nav aria-label="Primary">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="https://github.com/mlaugh4">GitHub</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="eyebrow">Portfolio</p>
+        <h1>Design and engineering for products people actually use.</h1>
+        <p class="lede">
+          I build software at the intersection of interaction design and
+          engineering — from mixed-reality medical tools to a location-based
+          notes app for iPhone.
+        </p>
+      </section>
+
+      <section id="work" class="work">
+        <h2>Selected work</h2>
+        <ul class="projects">
+          <li>
+            <article class="project">
+              <p class="meta">iOS · in progress</p>
+              <h3>Coordinote</h3>
+              <p>
+                Location-based notes for iPhone. Capture thoughts tied to a
+                place, then find them again when you return.
+              </p>
+              <p class="links">
+                <a href="https://github.com/mlaugh4/coordinote-privacy"
+                  >Privacy policy</a
+                >
+              </p>
+            </article>
+          </li>
+          <li>
+            <article class="project">
+              <p class="meta">VR · 2016–2017</p>
+              <h3>Pear Med</h3>
+              <p>
+                Co-founded a University of Washington CoMotion startup building
+                VR software so physicians and patients could see medical data in
+                space — preoperative planning and education, not a tech demo.
+                Piloted with Seattle Children’s Hospital.
+              </p>
+              <p class="links">
+                <a href="https://github.com/mlaugh4/PearMed-Website"
+                  >Marketing site</a
+                >
+                <a
+                  href="https://www.geekwire.com/2017/seattle-childrens-hospital-test-new-vr-medical-technology-change-lives-patients/"
+                  >GeekWire</a
+                >
+              </p>
+            </article>
+          </li>
+        </ul>
+      </section>
+
+      <section id="about" class="about">
+        <h2>About</h2>
+        <p>
+          I’m Mark Laughery. My work sits between product design and software
+          engineering. At Pear Med I paired design with health-informatics
+          research to make mixed-reality interfaces useful in clinic. These days
+          I’m focused on Coordinote and other small, well-made products.
+        </p>
+        <p>
+          Writing:
+          <a href="https://medium.com/@markwinslow/a-meta-analysis-of-ux-in-mixed-augmented-reality-jan-2017-ac6536c4204a"
+            >State of Mixed/Augmented Reality (2017)</a
+          >.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>© <span id="year"></span> Mark Laughery</p>
+      <p>
+        <a href="https://github.com/mlaugh4">github.com/mlaugh4</a>
+      </p>
+    </footer>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
