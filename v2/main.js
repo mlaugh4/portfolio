@@ -1,5 +1,52 @@
 document.documentElement.classList.add("js");
 
+const GATE_PASSWORD = "topsecret";
+const gateForm = document.querySelector("[data-gate-form]");
+const gateInput = document.querySelector("[data-gate-input]");
+const gateError = document.querySelector("[data-gate-error]");
+const gateFields = document.querySelector(".gate__fields");
+const contactLink = document.querySelector(".topbar__contact");
+
+if (!document.documentElement.classList.contains("is-unlocked") && contactLink) {
+  contactLink.addEventListener("click", (event) => {
+    if (document.documentElement.classList.contains("is-unlocked")) return;
+    event.preventDefault();
+    window.location.href = "mailto:mwlaugh@gmail.com";
+  });
+}
+
+gateForm?.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const entered = gateInput.value;
+  if (entered !== GATE_PASSWORD) {
+    gateFields.classList.add("is-invalid");
+    gateError.hidden = false;
+    gateInput.setAttribute("aria-invalid", "true");
+    gateInput.select();
+    return;
+  }
+  try {
+    localStorage.setItem("v2-gate", "1");
+  } catch (error) {}
+  const root = document.documentElement;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  gateInput.blur();
+  root.classList.add("is-unlocking");
+  window.setTimeout(
+    () => {
+      root.classList.add("is-unlocked", "is-revealing");
+      root.classList.remove("is-unlocking");
+      gateInput.value = "";
+      window.setTimeout(() => root.classList.remove("is-revealing"), 700);
+    },
+    reduceMotion ? 0 : 450
+  );
+});
+
+if (!document.documentElement.classList.contains("is-unlocked")) {
+  gateInput?.focus();
+}
+
 document.querySelectorAll("[data-year]").forEach((el) => {
   el.textContent = new Date().getFullYear();
 });
@@ -214,6 +261,8 @@ const makeGhost = (frame, rect) => {
   });
   const copy = frame.cloneNode(true);
   copy.querySelector(".frame__open")?.remove();
+  copy.querySelector(".vimeo-bar")?.remove();
+  copy.querySelectorAll("iframe").forEach((frame) => frame.removeAttribute("src"));
   copy.style.visibility = "visible";
   const source = frame.querySelector("video");
   const clone = copy.querySelector("video");
@@ -257,6 +306,96 @@ document.querySelectorAll("[data-deep-dive]").forEach((trigger) => {
     slot.querySelector(".deep-dive__slide.is-current .frame") || slot.querySelector(".frame");
   const videos = [...slot.querySelectorAll("video")];
   const video = videos[0];
+  const vimeoSrc = reduceMotion
+    ? "https://player.vimeo.com/video/367562203?controls=0&title=0&byline=0&portrait=0&dnt=1"
+    : "https://player.vimeo.com/video/367562203?autoplay=1&muted=1&loop=1&autopause=0&controls=0&title=0&byline=0&portrait=0&dnt=1";
+  const vimeoPlayers = new WeakMap();
+
+  const clock = (seconds) => {
+    const whole = Math.max(0, Math.round(seconds));
+    return `${Math.floor(whole / 60)}:${String(whole % 60).padStart(2, "0")}`;
+  };
+
+  const attachVimeo = (frame) => {
+    const shell = frame.parentElement.querySelector(".vimeo-bar");
+    const input = shell?.querySelector("input");
+    const label = shell?.querySelector("[data-vimeo-time]");
+    if (!input || !label) return;
+    let state = vimeoPlayers.get(frame);
+    if (state?.player || state?.pending) return;
+    if (!state) {
+      state = { player: null, duration: 0, scrubbing: false };
+      vimeoPlayers.set(frame, state);
+      const show = (seconds, total, fromUser) => {
+        const pct = total ? (seconds / total) * 100 : 0;
+        if (!fromUser) input.value = String(pct);
+        input.style.setProperty("--p", `${pct}%`);
+        input.setAttribute("aria-valuenow", String(Math.round(pct)));
+        input.setAttribute("aria-valuetext", `${clock(seconds)} of ${clock(total)}`);
+        label.textContent = `${clock(seconds)} / ${clock(total)}`;
+      };
+      state.show = show;
+      input.addEventListener("input", () => {
+        state.scrubbing = true;
+        if (state.duration) show((Number(input.value) / 100) * state.duration, state.duration, true);
+      });
+      input.addEventListener("change", () => {
+        const ratio = Number(input.value) / 100;
+        state.scrubbing = false;
+        if (state.player && state.duration) {
+          state.player.setCurrentTime(ratio * state.duration).catch(() => {});
+        }
+      });
+    }
+    state.pending = true;
+    const ready = window.Vimeo
+      ? Promise.resolve()
+      : new Promise((resolve, reject) => {
+          const script = document.createElement("script");
+          script.src = "https://player.vimeo.com/api/player.js";
+          script.onload = () => resolve();
+          script.onerror = () => reject();
+          document.head.appendChild(script);
+        });
+    ready
+      .then(() => {
+        state.pending = false;
+        if (!frame.isConnected || !frame.getAttribute("src") || state.player) return;
+        const player = new window.Vimeo.Player(frame);
+        state.player = player;
+        player.on("timeupdate", (data) => {
+          state.duration = data.duration || state.duration;
+          frame.parentElement.classList.add("is-ready");
+          if (!state.scrubbing) state.show(data.seconds, state.duration, false);
+        });
+      })
+      .catch(() => {
+        state.pending = false;
+      });
+  };
+
+  const releaseVimeo = (frame) => {
+    const state = vimeoPlayers.get(frame);
+    state?.player?.off("timeupdate");
+    if (state) state.player = null;
+    frame.parentElement.classList.remove("is-ready");
+  };
+
+  const syncVimeo = () => {
+    slot.querySelectorAll("iframe[data-vimeo]").forEach((frame) => {
+      const active =
+        dialog.open && !closing && frame.closest(".deep-dive__slide")?.classList.contains("is-current");
+      if (active) {
+        if (!frame.getAttribute("src")) frame.src = vimeoSrc;
+        attachVimeo(frame);
+        return;
+      }
+      if (frame.getAttribute("src")) {
+        releaseVimeo(frame);
+        frame.removeAttribute("src");
+      }
+    });
+  };
   let closing = false;
   let slide = 0;
   let swapToken = 0;
@@ -342,6 +481,7 @@ document.querySelectorAll("[data-deep-dive]").forEach((trigger) => {
     if (target === 0) {
       playSlot();
     }
+    syncVimeo();
   };
 
   if (reduceMotion) videos.forEach((item) => (item.controls = true));
@@ -367,18 +507,22 @@ document.querySelectorAll("[data-deep-dive]").forEach((trigger) => {
 
   const playCurrentSlideVideo = () => {
     if (!dialog.open || closing) return;
-    const activeVideo = slot.querySelector(".deep-dive__slide.is-current video");
+    const activeVideos = [...slot.querySelectorAll(".deep-dive__slide.is-current video")];
     videos.forEach((item) => {
-      if (item !== activeVideo) item.pause();
+      if (!activeVideos.includes(item)) item.pause();
     });
-    if (!activeVideo) return;
-    if (activeVideo === video) {
-      playSlot();
-      return;
-    }
-    activeVideo.preload = "auto";
-    activeVideo.play().catch(() => {
-      activeVideo.addEventListener("canplay", playCurrentSlideVideo, { once: true });
+    activeVideos.forEach((activeVideo) => {
+      if (activeVideo === video && slide === 0) {
+        playSlot();
+        return;
+      }
+      activeVideo.preload = "auto";
+      const start = () => {
+        if (!dialog.open || closing) return;
+        activeVideo.play().catch(() => {});
+      };
+      if (activeVideo.readyState >= 2) start();
+      else activeVideo.addEventListener("canplay", start, { once: true });
     });
   };
 
@@ -419,7 +563,8 @@ document.querySelectorAll("[data-deep-dive]").forEach((trigger) => {
     fly(ghost, [{ transform: from }, { transform: "none" }], EXPAND).then(() => {
       if (!dialog.open || closing) return;
       frame.style.visibility = "";
-      playSlot();
+      if (slide === 0) playSlot();
+      else playCurrentSlideVideo();
     });
   };
 
@@ -427,6 +572,7 @@ document.querySelectorAll("[data-deep-dive]").forEach((trigger) => {
     if (closing || !dialog.open) return;
     closing = true;
     videos.forEach((item) => item.pause());
+    syncVimeo();
     if (video && cardVideo && video.readyState > 0) cardVideo.currentTime = video.currentTime;
     dialog.querySelectorAll(".deep-dive__ghost").forEach((ghost) => ghost.remove());
     dialog.classList.remove("is-open");
@@ -453,6 +599,7 @@ document.querySelectorAll("[data-deep-dive]").forEach((trigger) => {
     });
     card.style.visibility = "";
     videos.forEach((item) => item.pause());
+    syncVimeo();
     lockPage(false);
     closing = false;
   };
