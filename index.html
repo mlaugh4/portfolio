@@ -3,195 +3,1199 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Mark Laughery — Principal UX</title>
+    <title>Mark Winslow — Principal UX</title>
     <meta
       name="description"
-      content="Mark Laughery is Principal UX at Indeed. Work across agentic recruiting, mixed-reality medical tools, and product design."
+      content="Mark Winslow is a Principal UX designer at Indeed. Agentic recruiting, mixed-reality medical tools, and side projects in fintech and health."
     />
     <meta name="color-scheme" content="light" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=74" />
+    <script>
+      try {
+        if (localStorage.getItem("v2-gate") === "1") {
+          document.documentElement.classList.add("is-unlocked");
+        }
+      } catch (error) {}
+    </script>
+    <script src="main.js?v=30" defer></script>
   </head>
   <body>
-    <a class="skip" href="#work">Skip to work</a>
-    <header class="site-header">
-      <p class="mark">Mark Laughery</p>
-      <nav aria-label="Primary">
-        <a href="#work">Work</a>
-        <a href="#about">About</a>
-        <a href="mailto:mwlaugh@gmail.com">Email</a>
-      </nav>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <div class="gate" id="gate">
+      <form class="gate__form" data-gate-form>
+        <div class="intro-mark" aria-hidden="true">
+          <img class="intro-mark__blob intro-mark__blob--pink" src="img/blob-pink.webp" alt="" />
+          <img class="intro-mark__blob intro-mark__blob--gold" src="img/blob-gold.webp" alt="" />
+          <img class="intro-mark__blob intro-mark__blob--line" src="img/blob-line.webp" alt="" />
+        </div>
+        <div class="gate__fields">
+          <label for="gate-password">Password</label>
+          <div class="gate__row">
+            <input
+              id="gate-password"
+              type="password"
+              name="password"
+              placeholder="Password"
+              autocomplete="current-password"
+              required
+              data-gate-input
+            />
+            <button type="submit" aria-label="Enter">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
+          <p class="gate__error" data-gate-error hidden>Try again.</p>
+        </div>
+      </form>
+    </div>
+
+    <header class="topbar">
+      <a class="topbar__name" href="#about">
+        <strong>Mark Winslow</strong>
+        <span>Principal UX</span>
+      </a>
+      <a class="topbar__contact" href="#contact">Contact</a>
     </header>
 
-    <main>
-      <section class="hero">
-        <p class="eyebrow">Principal UX · Brooklyn</p>
-        <h1>Design for high-stakes software.</h1>
-        <p class="lede">
-          I’m one of two Principals in a 150-person UX org at Indeed. Ten years
-          leading creative teams, with a standing preference for hard problems,
-          earnest coworkers, and positive social impact at scale.
-        </p>
+    <nav class="side-nav" aria-label="Sections" data-side-nav>
+      <ul class="side-nav__list">
+        <li>
+          <a class="nav-link" href="#about">
+            <span class="nav-link__dash" aria-hidden="true"></span>
+            <span class="nav-link__label">About</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-link" href="#odin">
+            <span class="nav-link__dash" aria-hidden="true"></span>
+            <span class="nav-link__label">Odin</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-link" href="#pear-med">
+            <span class="nav-link__dash" aria-hidden="true"></span>
+            <span class="nav-link__label">Pyrus Med</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-link" href="#coordinote">
+            <span class="nav-link__dash" aria-hidden="true"></span>
+            <span class="nav-link__label">Coordinote</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-link" href="#preptrack">
+            <span class="nav-link__dash" aria-hidden="true"></span>
+            <span class="nav-link__label">PrepTrack</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-link" href="#contact">
+            <span class="nav-link__dash" aria-hidden="true"></span>
+            <span class="nav-link__label">Contact</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <main id="main">
+      <section id="about" class="intro" aria-labelledby="intro-title">
+        <div class="wrap">
+          <div class="intro-mark" aria-hidden="true">
+            <img class="intro-mark__blob intro-mark__blob--pink" src="img/blob-pink.webp" alt="" />
+            <img class="intro-mark__blob intro-mark__blob--gold" src="img/blob-gold.webp" alt="" />
+            <img class="intro-mark__blob intro-mark__blob--line" src="img/blob-line.webp" alt="" />
+          </div>
+          <h1 id="intro-title">Intro</h1>
+          <p class="lede">
+            I am a human product designer in Brooklyn, NY. After meandering
+            around Python Pig, SQL, and R for some time, I shouldered my way
+            into design and am currently one of two principal designers in a
+            ~150-person UX org. I’m a generalist, but find flow in fast,
+            build-to-think workflows that require many hats.
+          </p>
+          <p class="lede">
+            Earnest people, potent coffee, and post-its are core to my
+            professional love language.
+          </p>
+          <p class="aside">
+            Currently: Principal UX at <a href="#odin">Indeed</a>.
+          </p>
+          <p class="aside">
+            Recent projects: Build guild (coming soon) •
+            <a href="#coordinote">Coordinote app</a> •
+            <a href="#preptrack">PrepTrack</a>
+          </p>
+        </div>
+
+        <div class="highlights" tabindex="0" aria-label="Highlights">
+          <div class="highlights__track">
+            <article class="highlight-card">
+              <h2>Highlights</h2>
+              <ul>
+                <li>Lived and worked in Japan, Vietnam, and Kenya</li>
+                <li>
+                  Founder of a 55-person bicycle racing club
+                  (<a href="https://www.instagram.com/acyclingteam">ACT</a>)
+                </li>
+                <li>Mentor of 8 HCI graduate students at UW</li>
+                <li>
+                  Cat dad (<a href="https://photos.app.goo.gl/wuzjAaiDutXYQFfJ7">Nodo</a>)
+                </li>
+                <li>Data analyst for 4ish years before HCI</li>
+                <li>
+                  Received the “Hyams (CEO) award” (top 5% performer) at Indeed,
+                  5 of the 6 years it was offered
+                </li>
+              </ul>
+            </article>
+
+            <article class="highlight-card">
+              <h2>In the news</h2>
+              <ul>
+                <li>
+                  <a
+                    href="https://www.geekwire.com/2017/seattle-childrens-hospital-test-new-vr-medical-technology-change-lives-patients/"
+                    >Geekwire — Seattle Children’s Hospital to test new VR medical
+                    technology that could change the lives of patients</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.king5.com/article/news/health/pear-med-university-of-washington-comotion-innovator-shows-off-virtual-reality-tool/281-420611481"
+                    >King 5 — Pear Med, University of Washington CoMotion innovator
+                    shows off virtual reality tool</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.seattletimes.com/seattle-news/education/uw-innovation-chief-takes-aim-at-social-issues/"
+                    >Seattle Times — UW innovation chief Vikram Jandhyala takes aim
+                    at social issues</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.forbes.com/sites/montymunford/2017/05/03/msurvey-and-safaricom-continue-kenyas-mobile-money-revolution/"
+                    >Forbes — mSurvey and Safaricom continue Kenya’s mobile money
+                    revolution (lead UX)</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.bloomberg.com/news/newsletters/2026-08-14/ai-drove-growth-at-indeed-after-investors-feared-the-worst-for-jobs-search-site"
+                    >Bloomberg — AI is driving gains at a jobs website. Investors
+                    feared the opposite.</a
+                  >
+                </li>
+              </ul>
+            </article>
+
+            <article class="highlight-card">
+              <h2>Publications &amp; presentations</h2>
+              <ul>
+                <li>
+                  <a
+                    href="https://www.urotoday.com/conference-highlights/world-congress-of-endourology-2017/98514-wce-2017-evaluation-of-a-3d-virtual-reality-model-for-surgical-planning-and-education.html"
+                    >Evaluation of a 3D Virtual Reality Model for Surgical Planning
+                    and Education.</a
+                  >
+                  Paper presented at the annual World Congress of Endourology in
+                  Vancouver, B.C.
+                </li>
+                <li>
+                  Landman, J., Safiullah, S., Clayman R., … Laughery, M. (2017)
+                  Three-dimensional Kidney Model Development for Virtual Reality.
+                  Paper presented at the annual Engineering and Urology conference
+                  in Boston, MA.
+                </li>
+                <li>
+                  Safiullah, S., Patel R., Lama, D., … Laughery, M. (2017)
+                  Evaluation of a 3D Virtual Reality Model for Surgical Planning
+                  and Education. Paper presented at the annual World Congress of
+                  Endourology in Vancouver, B.C.
+                </li>
+              </ul>
+            </article>
+          </div>
+        </div>
       </section>
 
-      <section id="work" class="work">
-        <h2>Selected work</h2>
-        <ul class="projects">
+      <section id="odin" class="project" aria-labelledby="odin-title">
+        <div class="wrap">
+          <div class="project__head">
+            <h2 id="odin-title">Odin</h2>
+            <details class="role">
+              <summary aria-label="Odin role details">i</summary>
+              <dl>
+                <dt>Role</dt>
+                <dd>Principal UX, design lead for a team of 8</dd>
+                <dt>Company</dt>
+                <dd>Indeed</dd>
+                <dt>Links</dt>
+                <dd>
+                  <a href="https://vimeo.com/1160782659">Video overview</a>,
+                  <a
+                    href="https://www.figma.com/proto/QzykPLdsbPzimtp2MYTUZN/Odin?page-id=184%3A18462&amp;node-id=640-57442&amp;scaling=scale-down&amp;content-scaling=fixed&amp;starting-point-node-id=640%3A57442&amp;show-proto-sidebar=1"
+                    >Vision (Figma)</a
+                  >,
+                  <a
+                    href="https://docs.google.com/presentation/d/11q3VzAOKB0fhr8kzIK9ABAuRadonyUYdkd1dKa0segI/edit?usp=sharing"
+                    >Dec release (Slides)</a
+                  >
+                </dd>
+              </dl>
+            </details>
+          </div>
+          <p>
+            Indeed’s venture bet on an AI recruiter for large employers.
+          </p>
+          <p>
+            Selected by SLT to lead the 12-person design team, scaling from
+            inception to 4000+ companies. AI strategy highlighted as key driver
+            through 216% stock surge.
+          </p>
+        </div>
+
+        <figure class="shot">
+          <div class="frame frame--stage">
+            <video
+              data-inline-video
+              src="img/odin-activity.mp4"
+              width="1360"
+              height="1082"
+              poster="img/odin-activity.jpg"
+              muted
+              loop
+              playsinline
+              aria-label="Odin dashboard, with the activity feed updating"
+            ></video>
+            <button
+              class="frame__open"
+              type="button"
+              data-deep-dive="odin-deep-dive"
+              aria-haspopup="dialog"
+              aria-label="View the Odin project"
+            >
+              <span class="frame__hint" aria-hidden="true">View project</span>
+            </button>
+          </div>
+          <figcaption>
+            <span>Design oversight · Agentic screening · End-to-end vision</span>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section id="pear-med" class="project" aria-labelledby="pear-title">
+        <div class="wrap">
+          <div class="project__head">
+            <h2 id="pear-title">Pyrus Med</h2>
+            <details class="role">
+              <summary aria-label="Pyrus Med role details">i</summary>
+              <dl>
+                <dt>Role</dt>
+                <dd>Co-founder and UX lead</dd>
+                <dt>When</dt>
+                <dd>2016–2017, UW CoMotion Labs</dd>
+                <dt>Press</dt>
+                <dd>
+                  <a
+                    href="https://www.geekwire.com/2017/seattle-childrens-hospital-test-new-vr-medical-technology-change-lives-patients/"
+                    >GeekWire</a
+                  >,
+                  <a
+                    href="https://www.king5.com/article/news/health/pear-med-university-of-washington-comotion-innovator-shows-off-virtual-reality-tool/281-420611481"
+                    >King 5</a
+                  >,
+                  <a
+                    href="https://www.urotoday.com/conference-highlights/world-congress-of-endourology-2017/98514-wce-2017-evaluation-of-a-3d-virtual-reality-model-for-surgical-planning-and-education.html"
+                    >WCE 2017</a
+                  >
+                </dd>
+              </dl>
+            </details>
+          </div>
+          <p>
+            UX Lead. Co-created with MDs from hallways of UW into four major
+            hospitals, several studies, and many conferences. Mixed reality
+            DICOM viewer for perioperative education. Takes in voxel media -
+            either segmented or raw CT/MRI data and makes it easy to explore
+            fine structures and pathology.
+          </p>
+        </div>
+
+        <figure class="shot shot--bleed">
+          <div class="frame frame--pyrus">
+            <img class="pyrus__wash" src="img/pyrus-gradient.svg" alt="" />
+            <p class="pyrus__label is-lead" style="--i: 0" aria-hidden="true">Imaging input</p>
+            <p class="pyrus__label" style="--i: 1" aria-hidden="true">Model management</p>
+            <p class="pyrus__label" style="--i: 2" aria-hidden="true">Virtual reality</p>
+            <p class="pyrus__label" style="--i: 3" aria-hidden="true">Augmented reality</p>
+            <img class="pyrus__panel is-lead" style="--i: 0" src="img/pyrus-filetypes.webp" width="478" height="676" alt="" />
+            <img class="pyrus__panel" style="--i: 1" src="img/pyrus-portal.webp" width="1024" height="680" alt="" />
+            <img class="pyrus__panel" style="--i: 2" src="img/pyrus-vr.webp" width="771" height="872" alt="" />
+            <img class="pyrus__panel" style="--i: 3" src="img/pyrus-ar.webp" width="771" height="872" alt="" />
+            <button
+              class="frame__open"
+              type="button"
+              data-deep-dive="pear-deep-dive"
+              aria-haspopup="dialog"
+              aria-label="View the Pyrus Med project"
+            >
+              <span class="frame__hint" aria-hidden="true">View project</span>
+            </button>
+          </div>
+          <figcaption>
+            <span>Exploring methods for model interaction in spatial environments</span>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section id="coordinote" class="project" aria-labelledby="coord-title">
+        <div class="wrap">
+          <div class="project__head">
+            <h2 id="coord-title">Coordinote</h2>
+            <details class="role">
+              <summary aria-label="Coordinote role details">i</summary>
+              <dl>
+                <dt>Role</dt>
+                <dd>Design and iOS development (personal project)</dd>
+                <dt>Status</dt>
+                <dd>In progress</dd>
+                <dt>Link</dt>
+                <dd>
+                  <a href="https://github.com/mlaugh4/coordinote-privacy"
+                    >Privacy policy</a
+                  >
+                </dd>
+              </dl>
+            </details>
+          </div>
+          <p>
+            Sole designer and “developer.” Vibe-built app to help regional
+            trail management organizations document trail issues.
+            Location-based note/photo app so crews can quickly capture and
+            document issues while they're in the field with limited cell
+            service.
+          </p>
+        </div>
+
+        <figure class="shot shot--bleed">
+          <div
+            class="frame frame--coordinote"
+            role="img"
+            aria-label="Coordinote screens: a field note, a map of pins, and a notes list"
+          >
+            <img class="coord__blob" src="img/coordinote-blob.svg" alt="" />
+            <img
+              class="coord__phone coord__phone--note"
+              src="img/coordinote-note.webp"
+              width="356"
+              height="771"
+              alt=""
+              loading="lazy"
+            />
+            <img
+              class="coord__phone coord__phone--map"
+              src="img/coordinote-map.webp"
+              width="356"
+              height="774"
+              alt=""
+              loading="lazy"
+            />
+            <img
+              class="coord__phone coord__phone--notes"
+              src="img/coordinote-notes.webp"
+              width="356"
+              height="771"
+              alt=""
+              loading="lazy"
+            />
+            <button
+              class="frame__open"
+              type="button"
+              data-deep-dive="coordinote-deep-dive"
+              aria-haspopup="dialog"
+              aria-label="View the Coordinote project"
+            >
+              <span class="frame__hint" aria-hidden="true">View project</span>
+            </button>
+          </div>
+          <figcaption>
+            <span>End-to-end design and iOS development</span>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section id="preptrack" class="project" aria-labelledby="preptrack-title">
+        <div class="wrap">
+          <div class="project__head">
+            <h2 id="preptrack-title">PrepTrack</h2>
+            <details class="role">
+              <summary aria-label="PrepTrack role details">i</summary>
+              <dl>
+                <dt>Role</dt>
+                <dd>Volunteer UX</dd>
+                <dt>With</dt>
+                <dd>An org out of Cambridge University</dd>
+              </dl>
+            </details>
+          </div>
+          <p>
+            Volunteer UX for an org out of Cambridge University that simplifies
+            PrEP adherence. Provided low-cost UX suggestions end to end, built
+            a design system, and offered some vision flows.
+          </p>
+        </div>
+
+        <figure class="shot shot--bleed">
+          <div class="frame frame--preptrack">
+            <div class="pt">
+              <div class="pt__wash"><img src="img/preptrack-waves.webp" alt="" /></div>
+              <p class="pt__label pt__label--past">Past</p>
+              <p class="pt__label pt__label--update">Update</p>
+              <img
+                class="pt__past"
+                src="img/preptrack-past.webp?v=2"
+                width="442"
+                height="957"
+                alt=""
+              />
+              <img
+                class="pt__update pt__update--risk"
+                src="img/preptrack-update-not-protected.webp?v=2"
+                width="443"
+                height="957"
+                alt="Not protected: six doses until protection starts"
+              />
+              <img
+                class="pt__update pt__update--safe"
+                src="img/preptrack-update-protected.webp?v=2"
+                width="443"
+                height="957"
+                alt="Protected: stay on track with your daily dose"
+              />
+            </div>
+            <button
+              class="frame__open"
+              type="button"
+              data-deep-dive="preptrack-deep-dive"
+              aria-haspopup="dialog"
+              aria-label="View the PrepTrack project"
+            >
+              <span class="frame__hint" aria-hidden="true">View project</span>
+            </button>
+          </div>
+          <figcaption>
+            <span>Design system revamp · Heuristic eval and flow mapping</span>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="kind-words" aria-labelledby="kind-title">
+        <div class="wrap">
+          <h3 id="kind-title">From peer reviews</h3>
+        </div>
+        <ul class="quotes">
           <li>
-            <article class="project">
-              <p class="meta">Indeed · current</p>
-              <h3>Odin</h3>
-              <p>
-                Indeed’s venture bet on an agentic recruiter for large
-                enterprises — find, screen, and summarize talent, and place
-                spend where it actually works. Led a team of 8 designers from
-                concept through pilots and a January 2026 deployment.
-              </p>
-              <p class="links">
-                <a href="https://vimeo.com/1160782659">Video overview</a>
-                <a
-                  href="https://www.figma.com/proto/QzykPLdsbPzimtp2MYTUZN/Odin?page-id=184%3A18462&amp;node-id=640-57442&amp;scaling=scale-down&amp;content-scaling=fixed&amp;starting-point-node-id=640%3A57442&amp;show-proto-sidebar=1"
-                  >Vision</a
-                >
-                <a
-                  href="https://docs.google.com/presentation/d/11q3VzAOKB0fhr8kzIK9ABAuRadonyUYdkd1dKa0segI/edit?usp=sharing"
-                  >Dec release</a
-                >
-                <a
-                  href="https://docs.google.com/presentation/d/1reV2Hk1gedEe_TkFCJcLCpU1Lxk8oEUEn9OghB7LvPo/edit?usp=sharing"
-                  >Employer AI strategy</a
-                >
-                <a
-                  href="https://docs.google.com/presentation/d/1u2FDRnC7DmqOJapZxY3xF9I6wwyyxZkRonPlbsqHAjM/edit?usp=sharing"
-                  >AI guidelines</a
-                >
-              </p>
-            </article>
+            <blockquote>
+              <p>“Mark might be the best designer I’ve worked with in my career.”</p>
+              <cite>Jason Ford, Product Director, 2024</cite>
+            </blockquote>
           </li>
           <li>
-            <article class="project">
-              <p class="meta">Pear Med · 2016–2017</p>
-              <h3>Mixed-reality surgical planning</h3>
+            <blockquote>
               <p>
-                UX lead. Co-created with physicians from the ground up into four
-                major hospitals. A mixed-reality DICOM viewer for perioperative
-                education — segmented or raw CT/MRI, explored in space so
-                pathology is easier to see. Piloted with Seattle Children’s.
+                “Mark is my north star for how I want to work and communicate
+                about my work. His work is creative, he keeps a huge audience
+                informed, and he produces more work than anyone else I know.”
               </p>
-              <p class="links">
-                <a
-                  href="https://www.icloud.com/keynote/0vbBrWDbFfcqCAGNVL4Uo8oUg#VR-Portfolio"
-                  >Keynote</a
-                >
-                <a href="https://vimeo.com/1136613543">Keynote video</a>
-                <a href="https://vimeo.com/367562203">Product video</a>
-                <a href="https://github.com/mlaugh4/PearMed-Website"
-                  >Website</a
-                >
-                <a
-                  href="https://www.geekwire.com/2017/seattle-childrens-hospital-test-new-vr-medical-technology-change-lives-patients/"
-                  >GeekWire</a
-                >
-              </p>
-            </article>
+              <cite>Meghna, UX peer, 2024</cite>
+            </blockquote>
           </li>
           <li>
-            <article class="project">
-              <p class="meta">Side project</p>
-              <h3>Wisden Wealth</h3>
+            <blockquote>
               <p>
-                Design and engineering, with the VP of Product at PayPal.
-                AI-powered weekly financial advice that talks to your investment
-                accounts.
+                “Mark’s work pushes innovation and quality. His designs are
+                inspiringly thorough, thoughtful, and beautiful.”
               </p>
-              <p class="links">
-                <a href="https://wisdenwealth.com">Website</a>
-              </p>
-            </article>
+              <cite>Content Lead, 2023</cite>
+            </blockquote>
           </li>
           <li>
-            <article class="project">
-              <p class="meta">iOS · in progress</p>
-              <h3>Coordinote</h3>
+            <blockquote>
               <p>
-                Location-based notes for iPhone. Capture a thought tied to a
-                place, then find it again when you return.
+                “Visionary thinking and ability to push for change while
+                bringing others on the journey.”
               </p>
-              <p class="links">
-                <a href="https://github.com/mlaugh4/coordinote-privacy"
-                  >Privacy policy</a
-                >
-              </p>
-            </article>
-          </li>
-          <li>
-            <article class="project">
-              <p class="meta">Volunteer · Cambridge</p>
-              <h3>PrepTrack</h3>
-              <p>
-                Volunteer UX for a Cambridge University effort to simplify PrEP
-                adherence. End-to-end suggestions, a design system, and vision
-                flows — on a low-cost, high-leverage brief.
-              </p>
-              <p class="links">
-                <a
-                  href="https://docs.google.com/presentation/d/1CjdlmNsiVJxnXOjN1zHa71hl_XUUuqpqAv6_RC9l0Hs/edit?usp=sharing"
-                  >Slides</a
-                >
-              </p>
-            </article>
+              <cite>Product Manager, 2023</cite>
+            </blockquote>
           </li>
         </ul>
       </section>
 
-      <section id="about" class="about">
-        <h2>About</h2>
-        <p>
-          Before HCI I spent four years as a data analyst. I’ve lived and worked
-          in Japan, Vietnam, and Kenya; mentored HCI graduate students at the
-          University of Washington; and received Indeed’s Hyams (CEO) award five
-          of the six years it was offered.
-        </p>
-        <blockquote>
-          “Mark might be the best designer I've worked with in my career.”
-          <cite>Jason Ford, Product Director, 2024</cite>
-        </blockquote>
-        <p class="sublabel">Press and writing</p>
-        <ul class="press">
-          <li>
-            <a
-              href="https://www.bloomberg.com/news/newsletters/2026-08-14/ai-drove-growth-at-indeed-after-investors-feared-the-worst-for-jobs-search-site"
-              >Bloomberg — AI is driving gains at a jobs website</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://www.forbes.com/sites/montymunford/2017/05/03/msurvey-and-safaricom-continue-kenyas-mobile-money-revolution/"
-              >Forbes — mSurvey and Safaricom (lead UX)</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://www.urotoday.com/conference-highlights/world-congress-of-endourology-2017/98514-wce-2017-evaluation-of-a-3d-virtual-reality-model-for-surgical-planning-and-education.html"
-              >WCE 2017 — 3D VR for surgical planning</a
-            >
-          </li>
-          <li>
-            <a href="https://www.acyclingteam.cc">ACT cycling club</a>
-          </li>
-        </ul>
+      <section id="contact" class="contact" aria-labelledby="contact-title">
+        <div class="wrap">
+          <h2 id="contact-title">Reach out</h2>
+          <ul class="contact__list">
+            <li><a href="mailto:mwlaugh@gmail.com">mwlaugh@gmail.com</a></li>
+            <li><a href="https://github.com/mlaugh4">github.com/mlaugh4</a></li>
+            <li>
+              <a
+                href="https://medium.com/@markwinslow/a-meta-analysis-of-ux-in-mixed-augmented-reality-jan-2017-ac6536c4204a"
+                >Writing on Medium</a
+              >
+            </li>
+          </ul>
+        </div>
       </section>
     </main>
 
-    <footer>
-      <p>© <span id="year"></span> Mark Laughery</p>
-      <p>
-        <a href="mailto:mwlaugh@gmail.com">mwlaugh@gmail.com</a>
-        ·
-        <a href="https://github.com/mlaugh4">GitHub</a>
-      </p>
+    <footer class="footer">
+      <div class="wrap">
+        <p>© <span data-year></span> Mark Winslow. Hand-built HTML and CSS.</p>
+      </div>
     </footer>
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
+
+    <dialog class="deep-dive" id="odin-deep-dive" aria-labelledby="odin-dd-title">
+      <header class="deep-dive__bar">
+        <p class="deep-dive__title" id="odin-dd-title">Odin</p>
+        <button class="deep-dive__close" type="button" aria-label="Close" data-deep-dive-close>
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+          </svg>
+        </button>
+      </header>
+
+      <div class="deep-dive__body">
+        <p class="deep-dive__count" data-slide-count hidden aria-live="polite"></p>
+        <div class="deep-dive__media" data-deep-dive-media>
+          <div class="deep-dive__slide is-current" data-slide>
+            <div class="frame frame--stage">
+              <video
+                src="img/odin-activity.mp4"
+                width="1360"
+                height="1082"
+                poster="img/odin-activity.jpg"
+                muted
+                loop
+                playsinline
+                preload="none"
+                aria-label="Odin dashboard, with the activity feed updating"
+              ></video>
+            </div>
+          </div>
+          <div class="deep-dive__slide" data-slide hidden>
+            <div class="frame frame--turnkey">
+              <img
+                src="img/odin-turnkey.webp"
+                width="1262"
+                height="709"
+                alt="Welcome to Odin, beside the Wavewood hiring strategy"
+              />
+            </div>
+          </div>
+          <div class="deep-dive__slide" data-slide hidden>
+            <div class="frame frame--sourcing">
+              <video
+                src="img/odin-sourcing.mp4"
+                width="1280"
+                height="720"
+                poster="img/odin-sourcing-poster.webp"
+                muted
+                loop
+                playsinline
+                preload="none"
+                aria-label="Odin sourcing agent instructions being customized"
+              ></video>
+            </div>
+          </div>
+          <div class="deep-dive__slide" data-slide hidden>
+            <div class="frame frame--drivers">
+              <img
+                src="img/odin-drivers.webp?v=3"
+                width="1024"
+                height="894"
+                alt="Two phases of Odin: job creation builds default screening criteria from the job description, screening questions, and past jobs. Presenting candidates scores them from those criteria plus the job, model jobs, and skill trends. A core feedback loop connects the score back to screening criteria."
+              />
+            </div>
+          </div>
+          <div class="deep-dive__slide" data-slide hidden>
+            <div class="frame frame--optimizing">
+              <video
+                src="img/odin-optimizing.mp4"
+                width="1188"
+                height="720"
+                poster="img/odin-optimizing-poster.webp"
+                muted
+                loop
+                playsinline
+                preload="none"
+                aria-label="Odin identifying budget inefficiencies and recommending job optimizations"
+              ></video>
+            </div>
+          </div>
+          <div class="deep-dive__slide" data-slide hidden>
+            <div class="frame frame--fit">
+              <img
+                src="img/odin-fit.webp"
+                width="1324"
+                height="772"
+                alt="Resume summary for Maria Stites: Indeed Smart Screening score of 99 for Clinical Trial RN at Wavewood Pharma, with recent experience, supporting documentation, highlights, and items flagged for review"
+              />
+            </div>
+          </div>
+          <div class="deep-dive__slide" data-slide hidden>
+            <div class="frame frame--slop">
+              <video
+                src="img/odin-slop.mp4"
+                width="1280"
+                height="716"
+                poster="img/odin-slop-poster.webp"
+                muted
+                loop
+                playsinline
+                preload="none"
+                aria-label="Odin checking that applicants are real people, with a bot mitigation ID check and a credential upload for required licensure"
+              ></video>
+            </div>
+          </div>
+          <button class="deep-dive__arrow deep-dive__arrow--prev" type="button" data-slide-prev aria-label="Previous slide">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <path d="M14 6 8 12l6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <button class="deep-dive__arrow deep-dive__arrow--next" type="button" data-slide-next aria-label="Next slide">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <path d="M10 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="deep-dive__text" data-slide-copy>
+          <div class="deep-dive__copy">
+            <h2 class="deep-dive__heading">Project overview</h2>
+            <h3>Context</h3>
+            <p>
+              Indeed’s legacy business (hosted job advertising) asymptoted in
+              2023. In an attempt to reignite revenue growth, SLT formed a tiger
+              team to build an agentic recruiting and screening product for
+              enterprise employers.
+            </p>
+            <h3>Product</h3>
+            <p>
+              Agentic recruiting assistant that uses screening criteria to
+              intelligently find, screen, and summarize talent, as well as
+              distribute spend efficiently across jobs.
+            </p>
+            <h3>Key challenge</h3>
+            <p>
+              Finding the goldilocks optimal input per job to maximize trust
+              and accuracy, while minimizing legal and social risk. Balancing
+              conflicting interests between buyers (HR leader) and daily users
+              that stand to be replaced (Recruiters).
+            </p>
+            <h3>Outcome</h3>
+            <p>
+              Led team of 8 designers from concept through 3 pilot phases, and
+              full deployment in January 2026 (currently multiple $1mm
+              contracts). Navigated complex legal, RAI, and multi-constituent
+              problem space.
+            </p>
+          </div>
+          <dl class="deep-dive__meta">
+            <dt>Role</dt>
+            <dd>Design lead on team of 8 ICs</dd>
+            <dt>Company</dt>
+            <dd>Indeed</dd>
+            <dt>Links</dt>
+            <dd>
+              <a href="https://vimeo.com/1160782659">Video overview</a><br />
+              <a
+                href="https://www.figma.com/proto/QzykPLdsbPzimtp2MYTUZN/Odin?page-id=184%3A18462&amp;node-id=640-57442&amp;scaling=scale-down&amp;content-scaling=fixed&amp;starting-point-node-id=640%3A57442&amp;show-proto-sidebar=1"
+                >Vision (Figma)</a
+              ><br />
+              <a
+                href="https://docs.google.com/presentation/d/11q3VzAOKB0fhr8kzIK9ABAuRadonyUYdkd1dKa0segI/edit?usp=sharing"
+                >Dec release (Slides)</a
+              >
+            </dd>
+          </dl>
+        </div>
+        <div class="deep-dive__text deep-dive__text--solo" data-slide-copy hidden>
+          <div class="deep-dive__copy">
+            <h2 class="deep-dive__heading">Turnkey setup</h2>
+            <p>
+              Our first challenge was to address pressure to keep onboarding
+              lightweight, but provide just enough control and transparency to
+              ingrain trust. We learned in generative that XL employers live in
+              their ATS and have little tolerance for outside tooling and
+              elaborate config.
+            </p>
+          </div>
+        </div>
+        <div class="deep-dive__text deep-dive__text--solo" data-slide-copy hidden>
+          <div class="deep-dive__copy">
+            <h2 class="deep-dive__heading">Agent customization</h2>
+            <p>
+              Employers that pay for “Headhunter” are invited to tune the
+              agent’s discovery and screening criteria. Research found that
+              investment in this phase predicts higher chance of hiring
+              outcomes and positive qualitative feedback, yet
+            </p>
+          </div>
+        </div>
+        <div class="deep-dive__text deep-dive__text--solo" data-slide-copy hidden>
+          <div class="deep-dive__copy">
+            <h2 class="deep-dive__heading">Mapping key AI value drivers</h2>
+            <p>
+              90% of Odin’s value was in the relevance of candidates delivered.
+              This was an iceberg product: Super simple AI with highly refined
+              business logic. Given these employers are largely embedded in
+              their ATS, a big part of my job was working with our Head of
+              Machine Learning to define two key moments: Generating default
+              screening criteria (see prior slide), and delivering wow-level
+              candidates with the right proof of fit.
+            </p>
+          </div>
+        </div>
+        <div class="deep-dive__text deep-dive__text--solo" data-slide-copy hidden>
+          <div class="deep-dive__copy">
+            <h2 class="deep-dive__heading">Human-in-the-loop when it matters</h2>
+            <p>
+              Trust is the dominant term in the AI adoption function. This is
+              particularly salient in high-stakes applications like hiring.
+              While we found employers were quick to outsource screening and
+              sourcing functions, we found human intervention was necessary
+              for many tasks (e.g. budget management and interview scheduling).
+            </p>
+          </div>
+        </div>
+        <div class="deep-dive__text deep-dive__text--solo" data-slide-copy hidden>
+          <div class="deep-dive__copy">
+            <h2 class="deep-dive__heading">Communicating “fit”</h2>
+            <p>
+              The candidate summary page is where employers spend 95% of their
+              time, as they are delivered to their ATS; prepended to the
+              resume. It includes three pages: The summary (pictured), resume,
+              and screening interview summary. The information presentation
+              rides the balance between extensive UXR and legal guidance.
+            </p>
+          </div>
+        </div>
+        <div class="deep-dive__text deep-dive__text--solo" data-slide-copy hidden>
+          <div class="deep-dive__copy">
+            <h2 class="deep-dive__heading">AI slop butterknife</h2>
+            <p>
+              Hiring is a bit of an AI arms race. Part of Odin’s value
+              proposition is going beyond the AI-gen resume (a problem we also
+              help create) to identify real humans that
+              <em>actually</em> have required skills and certifications. This
+              flow was additive and took careful consideration to prevent
+              significant volume decline.
+            </p>
+          </div>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog class="deep-dive" id="coordinote-deep-dive" aria-labelledby="coord-dd-title">
+      <header class="deep-dive__bar">
+        <p class="deep-dive__title" id="coord-dd-title">Coordinote</p>
+        <button class="deep-dive__close" type="button" aria-label="Close" data-deep-dive-close>
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+          </svg>
+        </button>
+      </header>
+      <div class="deep-dive__body">
+        <div class="deep-dive__media shot--bleed" data-deep-dive-media>
+          <div class="frame frame--coordinote">
+            <img
+              src="img/coordinote-cover.webp"
+              width="1663"
+              height="935"
+              alt="Coordinote screens: a field note, a map of pins, and a notes list"
+            />
+          </div>
+        </div>
+        <div class="deep-dive__text">
+          <div class="deep-dive__copy">
+            <h2 class="deep-dive__heading">Coordinote</h2>
+            <p>
+              Sole designer and “developer.” Vibe-built app to help regional
+              trail management organizations document trail issues.
+              Location-based note/photo app so crews can quickly capture and
+              document issues while they're in the field with limited cell
+              service.
+            </p>
+          </div>
+          <dl class="deep-dive__meta">
+            <dt>Role</dt>
+            <dd>Design and iOS development (personal project)</dd>
+            <dt>Status</dt>
+            <dd>In progress</dd>
+            <dt>Link</dt>
+            <dd>
+              <a href="https://github.com/mlaugh4/coordinote-privacy">Privacy policy</a>
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog class="deep-dive" id="preptrack-deep-dive" aria-labelledby="preptrack-dd-title">
+      <header class="deep-dive__bar">
+        <p class="deep-dive__title" id="preptrack-dd-title">PrepTrack</p>
+        <button class="deep-dive__close" type="button" aria-label="Close" data-deep-dive-close>
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+          </svg>
+        </button>
+      </header>
+      <div class="deep-dive__body">
+        <div class="deep-dive__media shot--bleed" data-deep-dive-media>
+          <div class="frame frame--preptrack">
+            <div class="pt">
+              <div class="pt__wash"><img src="img/preptrack-waves.webp" alt="" /></div>
+              <p class="pt__label pt__label--past">Past</p>
+              <p class="pt__label pt__label--update">Update</p>
+              <img class="pt__past" src="img/preptrack-past.webp?v=2" width="442" height="957" alt="" />
+              <img
+                class="pt__update pt__update--risk"
+                src="img/preptrack-update-not-protected.webp?v=2"
+                width="443"
+                height="957"
+                alt="Not protected: six doses until protection starts"
+              />
+              <img
+                class="pt__update pt__update--safe"
+                src="img/preptrack-update-protected.webp?v=2"
+                width="443"
+                height="957"
+                alt="Protected: stay on track with your daily dose"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="deep-dive__text">
+          <div class="deep-dive__copy">
+            <h2 class="deep-dive__heading">PrepTrack</h2>
+            <h3>Context</h3>
+            <p>
+              Volunteer UX for org out of Cambridge University that simplifies
+              PreP adherence. Provided low-cost UX suggestions across
+              end-to-end, built a design system, and offered some vision flows.
+              The team hadn’t had any UX input and the application was very
+              confusing. And, frankly, ugly.
+            </p>
+            <h3>Product</h3>
+            <p>
+              Mobile app to help people manage HIV pre-exposure prophylaxis
+              (PrEP) medication. It recorded pill intake and sex timing,
+              provided dosage reminders, tracked protection status for daily or
+              event-based PrEP (aligned with UK guidelines), and stored all data
+              privately on the user's device.
+            </p>
+            <h3>Outcome</h3>
+            <p>Provided robust design spec that volunteer eng team built against.</p>
+          </div>
+          <dl class="deep-dive__meta">
+            <dt>Role</dt>
+            <dd>Volunteer designer</dd>
+            <dt>Company</dt>
+            <dd>PrepTrack</dd>
+            <dt>Links</dt>
+            <dd>
+              <a href="https://www.preptrack.org/">Website</a><br />
+              <a
+                href="https://docs.google.com/presentation/d/1CjdlmNsiVJxnXOjN1zHa71hl_XUUuqpqAv6_RC9l0Hs/edit?usp=sharing"
+                >Slides</a
+              >
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog class="deep-dive" id="pear-deep-dive" aria-labelledby="pear-dd-title">
+      <header class="deep-dive__bar">
+        <p class="deep-dive__title" id="pear-dd-title">Pyrus Med</p>
+        <button class="deep-dive__close" type="button" aria-label="Close" data-deep-dive-close>
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+          </svg>
+        </button>
+      </header>
+      <div class="deep-dive__body">
+        <p class="deep-dive__count" data-slide-count hidden aria-live="polite"></p>
+        <div class="deep-dive__media shot--bleed" data-deep-dive-media>
+          <div class="deep-dive__slide is-current" data-slide>
+            <div class="frame frame--pyrus">
+              <img class="pyrus__wash" src="img/pyrus-gradient.svg" alt="" />
+              <p class="pyrus__label is-lead" style="--i: 0" aria-hidden="true">Imaging input</p>
+              <p class="pyrus__label" style="--i: 1" aria-hidden="true">Model management</p>
+              <p class="pyrus__label" style="--i: 2" aria-hidden="true">Virtual reality</p>
+              <p class="pyrus__label" style="--i: 3" aria-hidden="true">Augmented reality</p>
+              <img class="pyrus__panel is-lead" style="--i: 0" src="img/pyrus-filetypes.webp" width="478" height="676" alt="" />
+              <img class="pyrus__panel" style="--i: 1" src="img/pyrus-portal.webp" width="1024" height="680" alt="" />
+              <img class="pyrus__panel" style="--i: 2" src="img/pyrus-vr.webp" width="771" height="872" alt="" />
+              <img class="pyrus__panel" style="--i: 3" src="img/pyrus-ar.webp" width="771" height="872" alt="" />
+            </div>
+          </div>
+          <div class="deep-dive__slide" data-slide hidden>
+            <div class="frame frame--vimeo">
+              <iframe
+                data-vimeo
+                title="Pear Med"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+              <div class="vimeo-bar">
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  step="0.1"
+                  value="0"
+                  aria-label="Seek"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  aria-valuenow="0"
+                  aria-valuetext="0:00"
+                />
+                <span class="vimeo-bar__time" data-vimeo-time>0:00</span>
+              </div>
+            </div>
+          </div>
+          <div class="deep-dive__slide" data-slide hidden>
+            <div
+              class="frame frame--splash"
+              role="img"
+              aria-label="Press clippings for Pyrus Med: the Seattle Times, King 5, a lab session with the VR viewer, GeekWire, and UroToday"
+            >
+              <div class="splash__shot splash__shot--times">
+                <img src="img/pyrus-press-times.webp" width="2880" height="1800" alt="" />
+              </div>
+              <div class="splash__shot splash__shot--king">
+                <img src="img/pyrus-press-king5.webp" width="1588" height="1916" alt="" />
+              </div>
+              <div class="splash__shot splash__shot--lab">
+                <img src="img/pyrus-press-lab.webp" width="1920" height="1080" alt="" />
+              </div>
+              <div class="splash__shot splash__shot--geekwire">
+                <img src="img/pyrus-press-geekwire.webp" width="1746" height="1422" alt="" />
+              </div>
+              <div class="splash__shot splash__shot--uro">
+                <img src="img/pyrus-press-urotoday.webp" width="1560" height="1256" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="deep-dive__slide" data-slide hidden>
+            <div
+              class="frame frame--sketch"
+              role="img"
+              aria-label="Sketches for the Pyrus Med viewer: problem framing, a file-retrieval flow, a whiteboard session, a notebook being drawn in, and the menu progressing from a concept sketch to a high-fidelity mockup"
+            >
+              <img class="sketch__problem" src="img/pyrus-sketch-problem.webp" width="768" height="1024" alt="" />
+              <video
+                class="sketch__board"
+                src="img/pyrus-sketch-board.mp4"
+                width="1280"
+                height="720"
+                poster="img/pyrus-sketch-board-poster.webp"
+                muted
+                loop
+                playsinline
+                preload="none"
+              ></video>
+              <img class="sketch__flow" src="img/pyrus-sketch-flow.webp" width="768" height="1024" alt="" />
+              <video
+                class="sketch__notebook"
+                src="img/pyrus-sketch-notebook.mp4"
+                width="1280"
+                height="720"
+                poster="img/pyrus-sketch-notebook-poster.webp"
+                muted
+                loop
+                playsinline
+                preload="none"
+              ></video>
+              <img class="sketch__menu" src="img/pyrus-sketch-menu.webp" width="671" height="819" alt="" />
+            </div>
+          </div>
+          <div class="deep-dive__slide" data-slide hidden>
+            <div
+              class="frame frame--map"
+              role="img"
+              aria-label="Cross-platform map of the Pyrus Med desktop app and VR viewer, connecting a file portal to anatomy views, a model library, and voice annotations in VR"
+            >
+              <img src="img/pyrus-map.webp" width="1872" height="1048" alt="" />
+            </div>
+          </div>
+          <div class="deep-dive__slide" data-slide hidden>
+            <div
+              class="frame frame--uxr"
+              role="img"
+              aria-label="Usability sessions for the Pyrus Med viewer: a lab trial, an advisor reviewing a model, and an office session"
+            >
+              <video
+                src="img/pyrus-uxr.mp4"
+                width="640"
+                height="360"
+                poster="img/pyrus-uxr-poster.webp"
+                muted
+                loop
+                playsinline
+                preload="none"
+              ></video>
+              <img class="uxr__clinic" src="img/pyrus-uxr-clinic.webp" width="990" height="734" alt="" />
+              <img class="uxr__office" src="img/pyrus-uxr-office.webp" width="1008" height="1120" alt="" />
+            </div>
+          </div>
+          <button class="deep-dive__arrow deep-dive__arrow--prev" type="button" data-slide-prev aria-label="Previous slide">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <path d="M14 6 8 12l6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <button class="deep-dive__arrow deep-dive__arrow--next" type="button" data-slide-next aria-label="Next slide">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <path d="M10 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+        </div>
+        <div class="deep-dive__text" data-slide-copy>
+          <div class="deep-dive__copy">
+            <h2 class="deep-dive__heading">Project overview</h2>
+            <h3>Context</h3>
+            <p>
+              VR and AR was the hot emerging tech when I was in grad school. In
+              my final year, I linked up with two PhD students to build a
+              system for interventional cardiologists to educate and prepare
+              for complex procedures.
+            </p>
+            <h3>Product</h3>
+            <p>
+              In close collaboration with practitioners, we built a few
+              experiences: VR viewer with hybrid interaction model (more
+              later), AR viewer, and a desktop model management portal.
+            </p>
+            <h3>Key challenges</h3>
+            <ol>
+              <li>
+                Virtual reality is a big shift from current visualization tech,
+                and it’s introduction to the hospital requires a deep
+                understanding of surrounding players and influences. We used
+                ‘fly on the wall’ observation and contextual inquiry to better
+                understand and document workflows around medical imaging and
+                patient care protocols
+              </li>
+              <li>
+                One byproduct of this big shift is that novelty of interacting
+                with volumetric data. You can’t naturally use a keyboard and
+                mouse in VR, so we spent extensive time in the lab testing
+                various input models.
+              </li>
+            </ol>
+            <h3>Outcome</h3>
+            <p>
+              Partnership and seed money from the University of Washington.
+              Features in Seattle Times, Geekwire, and KING5 news. Pilots at 5
+              major research hospitals. vr workshop at largest radiology
+              conference in the world. Startup has gone through several rounds
+              and evolved into <a href="https://www.dopltechnologies.com/">Dopl</a>.
+            </p>
+          </div>
+          <dl class="deep-dive__meta">
+            <dt>Role</dt>
+            <dd>Co-founder and UX lead</dd>
+            <dt>When</dt>
+            <dd>2016–2017, UW CoMotion Labs</dd>
+            <dt>Links</dt>
+            <dd>
+              <a href="https://vimeo.com/367562203">Video</a><br />
+              <a
+                href="https://www.geekwire.com/2017/seattle-childrens-hospital-test-new-vr-medical-technology-change-lives-patients/"
+                >GeekWire</a
+              ><br />
+              <a
+                href="https://www.king5.com/article/news/health/pear-med-university-of-washington-comotion-innovator-shows-off-virtual-reality-tool/281-420611481"
+                >King 5</a
+              ><br />
+              <a
+                href="https://www.urotoday.com/conference-highlights/world-congress-of-endourology-2017/98514-wce-2017-evaluation-of-a-3d-virtual-reality-model-for-surgical-planning-and-education.html"
+                >WCE 2017</a
+              >
+            </dd>
+          </dl>
+        </div>
+        <div class="deep-dive__text deep-dive__text--solo" data-slide-copy hidden></div>
+        <div class="deep-dive__text deep-dive__text--solo" data-slide-copy hidden>
+          <div class="deep-dive__copy">
+            <h2 class="deep-dive__heading">Small splash</h2>
+            <p>As a nice log on our fire, our efforts were acknowledged by local publications:</p>
+            <ul>
+              <li>
+                <a
+                  href="https://www.geekwire.com/2017/seattle-childrens-hospital-test-new-vr-medical-technology-change-lives-patients/"
+                  >Geekwire</a
+                >: “Seattle Children’s Hospital to test new VR medical technology that could change the lives of patients”
+              </li>
+              <li>
+                <a
+                  href="https://www.king5.com/article/news/health/pear-med-university-of-washington-comotion-innovator-shows-off-virtual-reality-tool/281-420611481"
+                  >King 5</a
+                >: “Pear Med, University of Washington CoMotion innovator shows off virtual reality tool”
+              </li>
+              <li>
+                <a href="https://www.seattletimes.com/seattle-news/education/uw-innovation-chief-takes-aim-at-social-issues/"
+                  >Seattle Times</a
+                >: “UW innovation chief Vikram Jandhyala takes aim at social issues”
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="deep-dive__text deep-dive__text--solo" data-slide-copy hidden>
+          <div class="deep-dive__copy">
+            <h2 class="deep-dive__heading">Sketching was fundamental</h2>
+            <p>
+              Because the team was collocated, we used sketching for almost everything. Not only is it
+              inclusive and fast, we’ve found it easier that digital wire-framing tools to quickly design
+              in 3-dimensions. It was not uncommon for us to go straight into a prototype from sketches.
+            </p>
+          </div>
+        </div>
+        <div class="deep-dive__text deep-dive__text--solo" data-slide-copy hidden>
+          <div class="deep-dive__copy">
+            <h2 class="deep-dive__heading">Cross-platform application map</h2>
+            <p>
+              Before epics, we spend a little more time defining high-level flows and fit/finish. This
+              helps us optimize backend architecture and think about how data and features are distributed
+              between our web app and VR.
+            </p>
+          </div>
+        </div>
+        <div class="deep-dive__text deep-dive__text--solo" data-slide-copy hidden>
+          <div class="deep-dive__copy">
+            <h2 class="deep-dive__heading">Ongoing UXR</h2>
+            <p>
+              We were fortunate to have a team of medical advisors and bi-weekly working sessions at UW
+              Med Center. These tightened our feedback loop and helped us narrow scope quickly.
+              Less-frequent usability sessions were held when epics were completed (controller navigation,
+              new interaction integration, web application, etc).
+            </p>
+          </div>
+        </div>
+      </div>
+    </dialog>
   </body>
 </html>
