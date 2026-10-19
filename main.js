@@ -636,6 +636,148 @@ document.querySelectorAll("[data-deep-dive]").forEach((trigger) => {
   });
 });
 
+document.querySelectorAll("[data-case-study]").forEach((trigger) => {
+  const dialog = document.getElementById(trigger.dataset.caseStudy);
+  if (!dialog) return;
+  const videos = [...dialog.querySelectorAll("video")];
+  const track = dialog.querySelector("[data-phase-track]");
+  const stage = track?.querySelector(".case-study__phases-stage");
+  const phases = track ? [...track.querySelectorAll(".case-study__phase")] : [];
+  const dots = track ? [...track.querySelectorAll(".case-study__phases-progress span")] : [];
+  const live = track?.querySelector(".case-study__phases-live");
+  const phaseVideos = new Set(phases.flatMap((phase) => [...phase.querySelectorAll("video")]));
+  const narrow = window.matchMedia("(max-width: 760px)");
+  if (reduceMotion) videos.forEach((video) => (video.controls = true));
+  let playback = null;
+  let activePhase = -1;
+  let stageWasVisible = false;
+
+  // The dialog is its own scroll container, so the viewport root would never
+  // see these clips move. A tall clip can fill the screen before half of it
+  // is inside, so either condition counts as "scrolled to".
+  const inView = (entry) => {
+    if (!entry.isIntersecting || !dialog.open) return false;
+    const rootHeight = entry.rootBounds?.height || dialog.clientHeight;
+    return entry.intersectionRatio >= 0.45 || entry.intersectionRect.height >= rootHeight * 0.6;
+  };
+
+  const startPlayback = () => {
+    playback?.disconnect();
+    if (reduceMotion) return;
+    playback = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          const video = entry.target;
+          if (track?.classList.contains("is-pinned") && phaseVideos.has(video)) return;
+          if (inView(entry)) video.play().catch(() => {});
+          else video.pause();
+        }
+      },
+      { root: dialog, threshold: [0.15, 0.45, 0.75] }
+    );
+    videos.forEach((video) => playback.observe(video));
+  };
+
+  const stageVisible = () => {
+    if (!stage) return false;
+    const box = stage.getBoundingClientRect();
+    const root = dialog.getBoundingClientRect();
+    return box.bottom > root.top + 48 && box.top < root.bottom - 48;
+  };
+
+  const layoutPhases = () => {
+    if (!track || !stage) return;
+    track.classList.add("is-pinned");
+    const header = dialog.querySelector(".deep-dive__bar")?.offsetHeight || 0;
+    const stageHeight = stage.offsetHeight;
+    const room = dialog.clientHeight - header - 24;
+    const pin = !reduceMotion && !narrow.matches && stageHeight > 0 && stageHeight <= room;
+    track.classList.toggle("is-pinned", pin);
+    if (!pin) {
+      activePhase = -1;
+      stageWasVisible = false;
+      phases.forEach((phase) => {
+        phase.classList.remove("is-active");
+        phase.removeAttribute("inert");
+      });
+      dots.forEach((dot) => dot.classList.remove("is-active"));
+      if (live) live.textContent = "";
+      return;
+    }
+    const pinTop = Math.max(header + 16, (dialog.clientHeight - stage.offsetHeight) / 2);
+    track.style.setProperty("--pin-top", `${pinTop}px`);
+    track.style.setProperty("--stage-h", `${stage.offsetHeight}px`);
+    track.style.setProperty("--steps", String(Math.max(phases.length - 1, 1)));
+  };
+
+  const syncPhases = () => {
+    if (!track?.classList.contains("is-pinned") || !stage) return;
+    const pinTop = parseFloat(getComputedStyle(stage).top) || 0;
+    const consumed = pinTop - (track.getBoundingClientRect().top - dialog.getBoundingClientRect().top);
+    const range = Math.max(track.offsetHeight - stage.offsetHeight, 1);
+    const progress = Math.min(1, Math.max(0, consumed / range));
+    const index = Math.min(phases.length - 1, Math.floor(progress * phases.length));
+    const visible = stageVisible();
+    const entered = visible && !stageWasVisible;
+    stageWasVisible = visible;
+    if (!visible) phases.forEach((phase) => phase.querySelector("video")?.pause());
+    if (index === activePhase && !entered) return;
+    activePhase = index;
+    phases.forEach((phase, i) => {
+      const on = i === index;
+      phase.classList.toggle("is-active", on);
+      phase.toggleAttribute("inert", !on);
+      const video = phase.querySelector("video");
+      if (!video) return;
+      if (on && visible && !reduceMotion) video.play().catch(() => {});
+      else video.pause();
+    });
+    dots.forEach((dot, i) => dot.classList.toggle("is-active", i === index));
+    if (live && visible) live.textContent = phases[index]?.querySelector("h3")?.textContent || "";
+  };
+
+  const onScroll = () => syncPhases();
+
+  const open = () => {
+    if (dialog.open) return;
+    lockPage(true);
+    dialog.showModal();
+    dialog.scrollTop = 0;
+    dialog.classList.add("is-open");
+    layoutPhases();
+    syncPhases();
+    requestAnimationFrame(startPlayback);
+  };
+
+  const close = () => {
+    if (!dialog.open) return;
+    videos.forEach((video) => video.pause());
+    dialog.classList.remove("is-open");
+    dialog.close();
+    lockPage(Boolean(document.querySelector("dialog[open]")));
+    trigger.focus({ preventScroll: true });
+  };
+
+  trigger.addEventListener("click", open);
+  dialog.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", () => {
+    if (!dialog.open) return;
+    layoutPhases();
+    syncPhases();
+    startPlayback();
+  });
+  dialog.querySelector("[data-case-close]")?.addEventListener("click", close);
+  dialog.addEventListener("cancel", (event) => {
+    event.preventDefault();
+    close();
+  });
+  dialog.addEventListener("close", () => {
+    videos.forEach((video) => video.pause());
+    dialog.classList.remove("is-open");
+    lockPage(Boolean(document.querySelector("dialog[open]")));
+  });
+});
+
 document.addEventListener("keydown", (event) => {
   if (event.key !== "Escape") return;
   document.querySelectorAll("details.role[open]").forEach((details) => {

@@ -15,7 +15,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=74" />
+    <link rel="stylesheet" href="styles.css?v=128" />
     <script>
       try {
         if (localStorage.getItem("v2-gate") === "1") {
@@ -23,17 +23,17 @@
         }
       } catch (error) {}
     </script>
-    <script src="main.js?v=30" defer></script>
+    <script src="main.js?v=36" defer></script>
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
 
     <div class="gate" id="gate">
       <form class="gate__form" data-gate-form>
-        <div class="intro-mark" aria-hidden="true">
-          <img class="intro-mark__blob intro-mark__blob--pink" src="img/blob-pink.webp" alt="" />
-          <img class="intro-mark__blob intro-mark__blob--gold" src="img/blob-gold.webp" alt="" />
-          <img class="intro-mark__blob intro-mark__blob--line" src="img/blob-line.webp" alt="" />
+        <div class="gate__mark" aria-hidden="true">
+          <img class="gate__blob" src="img/gradient-blob.svg?v=2" alt="" />
+          <img class="gate__blob" src="img/gradient-blob.svg?v=2" alt="" />
+          <img class="gate__blob" src="img/gradient-blob.svg?v=2" alt="" />
         </div>
         <div class="gate__fields">
           <label for="gate-password">Password</label>
@@ -61,8 +61,12 @@
     <header class="topbar">
       <a class="topbar__name" href="#about">
         <strong>Mark Winslow</strong>
-        <span>Principal UX</span>
+        <span>UX designer</span>
       </a>
+      <p class="topbar__name topbar__name--gate">
+        <strong>Mark Winslow</strong>
+        <span>UX designer</span>
+      </p>
       <a class="topbar__contact" href="#contact">Contact</a>
     </header>
 
@@ -99,6 +103,12 @@
           </a>
         </li>
         <li>
+          <a class="nav-link" href="#resume">
+            <span class="nav-link__dash" aria-hidden="true"></span>
+            <span class="nav-link__label">Resume</span>
+          </a>
+        </li>
+        <li>
           <a class="nav-link" href="#contact">
             <span class="nav-link__dash" aria-hidden="true"></span>
             <span class="nav-link__label">Contact</span>
@@ -117,11 +127,11 @@
           </div>
           <h1 id="intro-title">Intro</h1>
           <p class="lede">
-            I am a human product designer in Brooklyn, NY. After meandering
-            around Python Pig, SQL, and R for some time, I shouldered my way
-            into design and am currently one of two principal designers in a
-            ~150-person UX org. I’m a generalist, but find flow in fast,
-            build-to-think workflows that require many hats.
+            I’m a human product designer in Brooklyn, NY. I shifted into UX
+            after a few years bumbling around pig, sql and excel, and have since
+            spent most of my time in hiring and med tech. Today I’m one of two
+            principal designers in a ~150 person UX org; focused on trying to
+            use AI to make hiring and job hunting less painful.
           </p>
           <p class="lede">
             Earnest people, potent coffee, and post-its are core to my
@@ -142,20 +152,25 @@
             <article class="highlight-card">
               <h2>Highlights</h2>
               <ul>
-                <li>Lived and worked in Japan, Vietnam, and Kenya</li>
                 <li>
-                  Founder of a 55-person bicycle racing club
+                  Received “Hyams (CEO) award” (top 5% performer) at Indeed 5 of
+                  6 years it was offered
+                </li>
+                <li>
+                  Led 0-to-1 of Indeed’s first agentic screening; now used by
+                  4000+ enterprise employers and millions of job seekers
+                </li>
+                <li>Stock grew 112% since moving into Principal role over employer AI (Jan-Oct '26)</li>
+                <li>
+                  Created presentation on agentic hiring for World Economic Forum
+                  2026
+                </li>
+                <li>Lived+worked in the Japan, Vietnam, and Kenya</li>
+                <li>
+                  Founder of Seattle’s largest bicycle club
                   (<a href="https://www.instagram.com/acyclingteam">ACT</a>)
                 </li>
-                <li>Mentor of 8 HCI graduate students at UW</li>
-                <li>
-                  Cat dad (<a href="https://photos.app.goo.gl/wuzjAaiDutXYQFfJ7">Nodo</a>)
-                </li>
-                <li>Data analyst for 4ish years before HCI</li>
-                <li>
-                  Received the “Hyams (CEO) award” (top 5% performer) at Indeed,
-                  5 of the 6 years it was offered
-                </li>
+                <li>Mentor for 8 HCI graduate students at UW</li>
               </ul>
             </article>
 
@@ -257,12 +272,15 @@
             </details>
           </div>
           <p>
-            Indeed’s venture bet on an AI recruiter for large employers.
+            Indeed’s venture bet on an agentic solution for large employers.
           </p>
           <p>
-            Selected by SLT to lead the 12-person design team, scaling from
-            inception to 4000+ companies. AI strategy highlighted as key driver
-            through 216% stock surge.
+            Selected to lead the 12-person design team. Drove vision and helped
+            work back from inception to 4000+ companies. AI strategy highlighted
+            by CEO as key driver of recent pecuniary success. (<a
+              href="https://www.bloomberg.com/news/newsletters/2026-08-14/ai-drove-growth-at-indeed-after-investors-feared-the-worst-for-jobs-search-site"
+              >Bloomberg</a
+            >)
           </p>
         </div>
 
@@ -325,11 +343,12 @@
             </details>
           </div>
           <p>
-            UX Lead. Co-created with MDs from hallways of UW into four major
-            hospitals, several studies, and many conferences. Mixed reality
-            DICOM viewer for perioperative education. Takes in voxel media -
-            either segmented or raw CT/MRI data and makes it easy to explore
-            fine structures and pathology.
+            UX Lead. Co-created with MDs from the hallways of UW into four
+            major hospitals, and several studies and conferences. The core
+            product was a mixed reality DICOM viewer for perioperative
+            education that takes in voxel media - either segmented or raw
+            CT/MRI data - and makes it easy to explore fine structures and
+            pathology.
           </p>
         </div>
 
@@ -358,6 +377,41 @@
             <span>Exploring methods for model interaction in spatial environments</span>
           </figcaption>
         </figure>
+
+        <article class="case" aria-labelledby="pyrus-case-title">
+          <img
+            class="case__cover"
+            src="img/pyrus-touch-motion.jpg"
+            width="612"
+            height="906"
+            alt="Touch Motion: hybrid Oculus Touch and Leap Motion interaction model"
+            loading="lazy"
+          />
+          <div class="case__body">
+            <hgroup class="case__head">
+              <p class="case__eyebrow">Pyrus</p>
+              <h3 class="case__title" id="pyrus-case-title">Case study</h3>
+            </hgroup>
+            <p>Exploring methods for model interaction in spatial environments</p>
+            <p>
+              See our open-source interaction engine on
+              <a href="https://github.com/PyrusMed/Pear-Interaction-Engine" target="_blank" rel="noopener"
+                >Github</a
+              >
+            </p>
+            <button
+              class="case__go"
+              type="button"
+              data-case-study="touch-motion-deep-dive"
+              aria-haspopup="dialog"
+              aria-label="Open the Touch motion case study"
+            >
+              <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+                <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="currentColor" />
+              </svg>
+            </button>
+          </div>
+        </article>
       </section>
 
       <section id="coordinote" class="project" aria-labelledby="coord-title">
@@ -381,12 +435,19 @@
             </details>
           </div>
           <p>
-            Sole designer and “developer.” Vibe-built app to help regional
-            trail management organizations document trail issues.
-            Location-based note/photo app so crews can quickly capture and
-            document issues while they're in the field with limited cell
-            service.
+            Sole designer and “developer.” Built to help regional trail
+            management organizations document trail issues. Primary function
+            includes location-based notes and photos so crews can quickly
+            capture and document issues while they're in the field with limited
+            cell service.
           </p>
+          <img
+            class="store-badge"
+            src="img/app-store.svg"
+            width="120"
+            height="40"
+            alt="Download on the App Store"
+          />
         </div>
 
         <figure class="shot shot--bleed">
@@ -508,39 +569,68 @@
         <ul class="quotes">
           <li>
             <blockquote>
-              <p>“Mark might be the best designer I’ve worked with in my career.”</p>
-              <cite>Jason Ford, Product Director, 2024</cite>
-            </blockquote>
-          </li>
-          <li>
-            <blockquote>
               <p>
                 “Mark is my north star for how I want to work and communicate
                 about my work. His work is creative, he keeps a huge audience
                 informed, and he produces more work than anyone else I know.”
               </p>
-              <cite>Meghna, UX peer, 2024</cite>
+              <cite>2024, Meghna, UX peer</cite>
+            </blockquote>
+          </li>
+          <li>
+            <blockquote>
+              <p>“Mark might be the best designer I've worked with in my career.”</p>
+              <cite>2024, Jason Ford, Product Director</cite>
+            </blockquote>
+          </li>
+          <li>
+            <blockquote>
+              <p>
+                “True passion about Indeed product and drive to make an impact.
+                Visionary thinking and ability to push for change while bringing
+                others on the journey.”
+              </p>
+              <cite>2023, Laurie Sheflin, Product Director</cite>
             </blockquote>
           </li>
           <li>
             <blockquote>
               <p>
                 “Mark’s work pushes innovation and quality. His designs are
-                inspiringly thorough, thoughtful, and beautiful.”
+                inspiringly thorough, thoughtful, and beautiful. He is
+                supportive, smart, fun to collaborate with, and is someone I
+                look up to at Indeed.”
               </p>
-              <cite>Content Lead, 2023</cite>
-            </blockquote>
-          </li>
-          <li>
-            <blockquote>
-              <p>
-                “Visionary thinking and ability to push for change while
-                bringing others on the journey.”
-              </p>
-              <cite>Product Manager, 2023</cite>
+              <cite>2023, Content Lead</cite>
             </blockquote>
           </li>
         </ul>
+      </section>
+
+      <section id="resume" class="project" aria-labelledby="resume-title">
+        <div class="wrap">
+          <div class="project__head">
+            <h2 id="resume-title">Resume</h2>
+          </div>
+        </div>
+        <figure class="shot shot--narrow">
+          <div class="frame">
+            <img
+              src="img/resume.jpg"
+              width="1224"
+              height="1584"
+              alt="Resume, first page"
+            />
+            <a
+              class="frame__open"
+              href="resume.pdf"
+              download="Mark-Laughery-Resume.pdf"
+              aria-label="Download resume as PDF"
+            >
+              <span class="frame__hint" aria-hidden="true">Download PDF</span>
+            </a>
+          </div>
+        </figure>
       </section>
 
       <section id="contact" class="contact" aria-labelledby="contact-title">
@@ -597,9 +687,9 @@
           <div class="deep-dive__slide" data-slide hidden>
             <div class="frame frame--turnkey">
               <img
-                src="img/odin-turnkey.webp"
-                width="1262"
-                height="709"
+                src="img/odin-turnkey.png"
+                width="1024"
+                height="572"
                 alt="Welcome to Odin, beside the Wavewood hiring strategy"
               />
             </div>
@@ -686,10 +776,12 @@
             <h2 class="deep-dive__heading">Project overview</h2>
             <h3>Context</h3>
             <p>
-              Indeed’s legacy business (hosted job advertising) asymptoted in
-              2023. In an attempt to reignite revenue growth, SLT formed a tiger
-              team to build an agentic recruiting and screening product for
-              enterprise employers.
+              Indeed’s legacy business (hosted job advertising) peaked in 2023.
+              In an attempt to reignite revenue growth, SLT formed a tiger team
+              to build an agentic sourcing and screening tool for enterprise
+              employers. While this may seem like AI herd behavior, it also
+              marked a shift into an underpenetrated segment with a much more
+              complicated service blueprint.
             </p>
             <h3>Product</h3>
             <p>
@@ -699,18 +791,28 @@
             </p>
             <h3>Key challenge</h3>
             <p>
-              Finding the goldilocks optimal input per job to maximize trust
-              and accuracy, while minimizing legal and social risk. Balancing
-              conflicting interests between buyers (HR leader) and daily users
-              that stand to be replaced (Recruiters).
+              Finding a goldilocks optimal input per job that maximizes trust
+              and accuracy, while minimizing setup bloat, and legal and social
+              risk. Research also ran into the universal tension between buyers
+              and users (recruiters): How might we evaluate utility in a
+              vertical experiencing widespread displacement?
             </p>
             <h3>Outcome</h3>
-            <p>
-              Led team of 8 designers from concept through 3 pilot phases, and
-              full deployment in January 2026 (currently multiple $1mm
-              contracts). Navigated complex legal, RAI, and multi-constituent
-              problem space.
-            </p>
+            <ul>
+              <li>
+                Led team of designers through complex legal, RAI, and
+                multi-constituent problem space -- from concept through 3 pilot
+                phases, and full deployment in early 2026.
+              </li>
+              <li>
+                Vision for agentic recruiting presented at 2026 World Economic
+                Forum
+              </li>
+              <li>
+                Product is currently top sales priority and used by over 4000
+                enterprise employers and millions of job seekers
+              </li>
+            </ul>
           </div>
           <dl class="deep-dive__meta">
             <dt>Role</dt>
@@ -735,11 +837,15 @@
           <div class="deep-dive__copy">
             <h2 class="deep-dive__heading">Turnkey setup</h2>
             <p>
-              Our first challenge was to address pressure to keep onboarding
-              lightweight, but provide just enough control and transparency to
-              ingrain trust. We learned in generative that XL employers live in
-              their ATS and have little tolerance for outside tooling and
-              elaborate config.
+              Our first challenge focused on adoption. We had to address
+              pressure to keep onboarding lightweight, but provide just enough
+              control and transparency to ingrain trust. An unchanging truth
+              about XL employers is that they live in their ATS and have little
+              tolerance for outside tooling and elaborate config. We attempt to
+              overcome this hurdle by creating a simple, standalone page that
+              hides all of Indeed’s legacy interface, and offering a “hiring
+              strategy” that mimics a planning step and artifact that already
+              exists within many enterprise HR orgs.
             </p>
           </div>
         </div>
@@ -747,10 +853,13 @@
           <div class="deep-dive__copy">
             <h2 class="deep-dive__heading">Agent customization</h2>
             <p>
-              Employers that pay for “Headhunter” are invited to tune the
-              agent’s discovery and screening criteria. Research found that
-              investment in this phase predicts higher chance of hiring
-              outcomes and positive qualitative feedback, yet
+              Extending this focused setup experience: Employers that opt in
+              for agentic sourcing (“headhunter”) are encouraged to tune
+              discovery and screening criteria. Research found that investment
+              in this phase predicts higher chance of hiring outcomes and
+              positive qualitative feedback. Key tension: Balancing cold start
+              burden with need for control. Equilibrium was found with
+              conversational input paired with intelligent pre-fills.
             </p>
           </div>
         </div>
@@ -758,13 +867,16 @@
           <div class="deep-dive__copy">
             <h2 class="deep-dive__heading">Mapping key AI value drivers</h2>
             <p>
-              90% of Odin’s value was in the relevance of candidates delivered.
-              This was an iceberg product: Super simple AI with highly refined
-              business logic. Given these employers are largely embedded in
-              their ATS, a big part of my job was working with our Head of
-              Machine Learning to define two key moments: Generating default
-              screening criteria (see prior slide), and delivering wow-level
-              candidates with the right proof of fit.
+              Odin’s value lay overwhelmingly in the relevance of its candidate
+              matches. We wanted an iceberg product: Dead simple UI paired with
+              sophisticated underlying AI and matching logic.
+            </p>
+            <p>
+              Given these employers are largely embedded in their ATS, a big
+              part of my job was working with the Head of Machine Learning to
+              define two key moments: Generating default screening criteria
+              (see prior slide), and delivering wow-level candidates with the
+              right proof of fit.
             </p>
           </div>
         </div>
@@ -772,11 +884,15 @@
           <div class="deep-dive__copy">
             <h2 class="deep-dive__heading">Human-in-the-loop when it matters</h2>
             <p>
-              Trust is the dominant term in the AI adoption function. This is
-              particularly salient in high-stakes applications like hiring.
-              While we found employers were quick to outsource screening and
-              sourcing functions, we found human intervention was necessary
-              for many tasks (e.g. budget management and interview scheduling).
+              Once an employer was up-and-running, our challenge shifted to
+              maintaining performance at scale. Single job management isn’t
+              feasible for enterprise users, nor was a fully agentic system.
+              Trust is the dominant term in the AI adoption function,
+              particularly in hiring where the stakes are uniquely high. While
+              we found employers were quick to outsource top-of-funnel
+              screening and sourcing functions, we found human intervention
+              was necessary for many tasks (e.g. budget management and
+              interview scheduling)
             </p>
           </div>
         </div>
@@ -784,21 +900,22 @@
           <div class="deep-dive__copy">
             <h2 class="deep-dive__heading">Communicating “fit”</h2>
             <p>
-              The candidate summary page is where employers spend 95% of their
-              time, as they are delivered to their ATS; prepended to the
-              resume. It includes three pages: The summary (pictured), resume,
-              and screening interview summary. The information presentation
-              rides the balance between extensive UXR and legal guidance.
+              Trust hinged on the quality of candidates we could provide, which
+              put a lot of weight on the candidate summary page. Given they
+              were prepended to the resume that was sent to the ATS, this ended
+              up being the fulcrum of our experience and where users spend 95%
+              of their time. It includes three pages: The summary (pictured),
+              resume, and screening interview summary.
             </p>
           </div>
         </div>
         <div class="deep-dive__text deep-dive__text--solo" data-slide-copy hidden>
           <div class="deep-dive__copy">
-            <h2 class="deep-dive__heading">AI slop butterknife</h2>
+            <h2 class="deep-dive__heading">Job seeker: Getting behind the AI facade</h2>
             <p>
-              Hiring is a bit of an AI arms race. Part of Odin’s value
+              Hiring is a marketplace AI arms race. Part of Odin’s value
               proposition is going beyond the AI-gen resume (a problem we also
-              help create) to identify real humans that
+              amplify) to identify real humans that
               <em>actually</em> have required skills and certifications. This
               flow was additive and took careful consideration to prevent
               significant volume decline.
@@ -832,11 +949,11 @@
           <div class="deep-dive__copy">
             <h2 class="deep-dive__heading">Coordinote</h2>
             <p>
-              Sole designer and “developer.” Vibe-built app to help regional
-              trail management organizations document trail issues.
-              Location-based note/photo app so crews can quickly capture and
-              document issues while they're in the field with limited cell
-              service.
+              Sole designer and “developer.” Built to help regional trail
+              management organizations document trail issues. Primary function
+              includes location-based notes and photos so crews can quickly
+              capture and document issues while they're in the field with
+              limited cell service.
             </p>
           </div>
           <dl class="deep-dive__meta">
@@ -892,11 +1009,9 @@
             <h2 class="deep-dive__heading">PrepTrack</h2>
             <h3>Context</h3>
             <p>
-              Volunteer UX for org out of Cambridge University that simplifies
-              PreP adherence. Provided low-cost UX suggestions across
-              end-to-end, built a design system, and offered some vision flows.
-              The team hadn’t had any UX input and the application was very
-              confusing. And, frankly, ugly.
+              A group out of Cambridge University built an app that simplifies
+              PreP adherence. They’d never worked with a designer and the
+              experience was visually dated and had broken flows.
             </p>
             <h3>Product</h3>
             <p>
@@ -907,7 +1022,11 @@
               privately on the user's device.
             </p>
             <h3>Outcome</h3>
-            <p>Provided robust design spec that volunteer eng team built against.</p>
+            <p>
+              Redesigned end-to-end on top of a new design system and offered
+              vision flows around setup and key tracking steps. Provided robust
+              design spec for engineering team.
+            </p>
           </div>
           <dl class="deep-dive__meta">
             <dt>Role</dt>
@@ -923,6 +1042,165 @@
               >
             </dd>
           </dl>
+        </div>
+        <div class="deep-dive__story">
+          <section class="story">
+            <h2 class="story__title">Tracking home</h2>
+            <div class="story__compare">
+              <figure class="story__shot">
+                <figcaption>Before</figcaption>
+                <img
+                  class="is-before"
+                  src="img/preptrack-dd-home-before.jpg"
+                  width="786"
+                  height="1701"
+                  alt="Previous tracking home, with doses remaining and upcoming reminders"
+                  loading="lazy"
+                />
+              </figure>
+              <figure class="story__shot">
+                <figcaption>Update</figcaption>
+                <img
+                  src="img/preptrack-dd-home-update.jpg"
+                  width="780"
+                  height="1688"
+                  alt="Updated tracking home, with protection status and a daily schedule"
+                  loading="lazy"
+                />
+              </figure>
+            </div>
+          </section>
+          <section class="story">
+            <h2 class="story__title">Dose recording</h2>
+            <figure class="story__shot">
+              <figcaption>Before</figcaption>
+              <div class="story__phones">
+                <img
+                  class="is-before"
+                  src="img/preptrack-dd-dose-before-1.jpg"
+                  width="786"
+                  height="1700"
+                  alt="Previous dose recording: confirm dose time"
+                  loading="lazy"
+                />
+                <img
+                  class="is-before"
+                  src="img/preptrack-dd-dose-before-2.jpg"
+                  width="786"
+                  height="1702"
+                  alt="Previous dose recording: sex timing question"
+                  loading="lazy"
+                />
+                <img
+                  class="is-before"
+                  src="img/preptrack-dd-dose-before-3.jpg"
+                  width="790"
+                  height="1710"
+                  alt="Previous dose recording: confirmation"
+                  loading="lazy"
+                />
+              </div>
+            </figure>
+            <figure class="story__shot">
+              <figcaption>Update</figcaption>
+              <div class="story__phones">
+                <img
+                  src="img/preptrack-dd-dose-update-1.jpg"
+                  width="780"
+                  height="1688"
+                  alt="Updated dose recording: take dose sheet"
+                  loading="lazy"
+                />
+                <img
+                  src="img/preptrack-dd-dose-update-2.jpg"
+                  width="780"
+                  height="1688"
+                  alt="Updated dose recording: sex timing sheet"
+                  loading="lazy"
+                />
+                <img
+                  src="img/preptrack-dd-dose-update-3.jpg"
+                  width="780"
+                  height="1688"
+                  alt="Updated dose recording: confirmation sheet"
+                  loading="lazy"
+                />
+              </div>
+            </figure>
+          </section>
+          <section class="story">
+            <h2 class="story__title">Setting reminders</h2>
+            <figure class="story__shot">
+              <figcaption>Update</figcaption>
+              <img
+                src="img/preptrack-dd-reminders.jpg"
+                width="2094"
+                height="1053"
+                alt="Updated push notification settings with dose reminder, dose timing, and confirmation sheets"
+                loading="lazy"
+              />
+            </figure>
+          </section>
+          <section class="story">
+            <h2 class="story__title">Vision exploration</h2>
+            <figure class="story__shot">
+              <div class="story__phones story__phones--four">
+                <figure>
+                  <figcaption>A</figcaption>
+                  <img
+                    src="img/preptrack-dd-vision-a.jpg?v=2"
+                    width="780"
+                    height="1688"
+                    alt="Vision A, status and upcoming reminders"
+                    loading="lazy"
+                  />
+                </figure>
+                <figure>
+                  <figcaption>B</figcaption>
+                  <img
+                    src="img/preptrack-dd-vision-b.jpg?v=2"
+                    width="780"
+                    height="1688"
+                    alt="Vision B, protection progress and a numbered plan"
+                    loading="lazy"
+                  />
+                </figure>
+                <figure>
+                  <figcaption>C</figcaption>
+                  <img
+                    src="img/preptrack-dd-vision-c.jpg?v=2"
+                    width="780"
+                    height="1688"
+                    alt="Vision C, dose dots with plan and notifications"
+                    loading="lazy"
+                  />
+                </figure>
+                <figure>
+                  <figcaption>D</figcaption>
+                  <img
+                    src="img/preptrack-dd-vision-d.jpg?v=2"
+                    width="780"
+                    height="1688"
+                    alt="Vision D, dose progress and a tracking history"
+                    loading="lazy"
+                  />
+                </figure>
+              </div>
+            </figure>
+          </section>
+          <section class="story">
+            <h2 class="story__title">MVP Design system</h2>
+            <figure class="story__shot story__shot--dark">
+              <figcaption>Figma</figcaption>
+              <img
+                src="img/preptrack-dd-system.jpg"
+                width="2100"
+                height="515"
+                alt="MVP design system components in Figma: misc, type, logo, header, button, link, card, and schedule"
+                loading="lazy"
+              />
+            </figure>
+          </section>
         </div>
       </div>
     </dialog>
@@ -1062,6 +1340,43 @@
               <img class="uxr__office" src="img/pyrus-uxr-office.webp" width="1008" height="1120" alt="" />
             </div>
           </div>
+          <div class="deep-dive__slide" data-slide hidden>
+            <div class="frame frame--case">
+              <article class="case" aria-labelledby="pyrus-case-slide-title">
+                <img
+                  class="case__cover"
+                  src="img/pyrus-touch-motion.jpg"
+                  width="612"
+                  height="906"
+                  alt="Touch Motion: hybrid Oculus Touch and Leap Motion interaction model"
+                />
+                <div class="case__body">
+                  <hgroup class="case__head">
+                    <p class="case__eyebrow">Pyrus</p>
+                    <h3 class="case__title" id="pyrus-case-slide-title">Case study</h3>
+                  </hgroup>
+                  <p>Exploring methods for model interaction in spatial environments</p>
+                  <p>
+                    See our open-source interaction engine on
+                    <a href="https://github.com/PyrusMed/Pear-Interaction-Engine" target="_blank" rel="noopener"
+                      >Github</a
+                    >
+                  </p>
+                  <button
+                    class="case__go"
+                    type="button"
+                    data-case-study="touch-motion-deep-dive"
+                    aria-haspopup="dialog"
+                    aria-label="Open the Touch motion case study"
+                  >
+                    <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+                      <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="currentColor" />
+                    </svg>
+                  </button>
+                </div>
+              </article>
+            </div>
+          </div>
           <button class="deep-dive__arrow deep-dive__arrow--prev" type="button" data-slide-prev aria-label="Previous slide">
             <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
               <path d="M14 6 8 12l6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
@@ -1081,7 +1396,9 @@
               VR and AR was the hot emerging tech when I was in grad school. In
               my final year, I linked up with two PhD students to build a
               system for interventional cardiologists to educate and prepare
-              for complex procedures.
+              for complex procedures. We got a small investment from the
+              University and space in a lab that gave us intimate access to
+              practitioners.
             </p>
             <h3>Product</h3>
             <p>
@@ -1195,6 +1512,216 @@
             </p>
           </div>
         </div>
+        <div class="deep-dive__text deep-dive__text--solo" data-slide-copy hidden></div>
+      </div>
+    </dialog>
+
+    <dialog class="deep-dive" id="touch-motion-deep-dive" aria-labelledby="touch-dd-title">
+      <header class="deep-dive__bar">
+        <p class="deep-dive__title" id="touch-dd-title">Pyrus Med</p>
+        <button class="deep-dive__close" type="button" aria-label="Close" data-case-close>
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+          </svg>
+        </button>
+      </header>
+      <div class="deep-dive__body">
+        <article class="deep-dive__story case-study">
+          <header class="case-study__head">
+            <p class="case-study__eyebrow">Case study</p>
+            <h2 class="case-study__title">Touch motion</h2>
+            <p class="case-study__role">
+              Interaction design, Usability research, Basic Leap Motion dev, visual design
+            </p>
+          </header>
+          <div class="case-study__lead">
+            <img
+              class="case-study__video"
+              src="img/touch-challenge.jpg"
+              width="1024"
+              height="713"
+              alt="Hand pointing at a floating VR tool menu (annotate, color, measure, slicer, reset, camera, set bookmark) beside a heart model"
+            />
+            <div>
+              <h3>Challenge</h3>
+              <p>
+                While building Pyrus, it was immediately evident that out-of-the-box VR input systems were
+                unintuitive for practitioners. They didn’t have inside-out tracking cameras and instead relied on
+                controllers. This was fine at the time as Oculus and Vive were catering to gamers, but we found
+                almost everyone immediately put their hands out after putting on the headset. They expected this
+                level of immersion.
+              </p>
+              <p>
+                We needed a system to balance the precise input you’d get from a DICOM viewer with the human
+                factors and comfort experienced with hand mapping.
+              </p>
+              <blockquote class="case-study__quote">
+                <p>”This [controller] would be a deal breaker in a real clinical workflow... too many tools.”</p>
+                <footer>Dr Ripley, MD and expert in radiological 3D modeling</footer>
+              </blockquote>
+            </div>
+          </div>
+          <div class="case-study__goal">
+            <h3 class="case-study__hmw">
+              How might we accomodate ‘natural’ gestures with efficient, precise, and predictable input?
+            </h3>
+          </div>
+
+          <div class="case-study__phases" data-phase-track>
+            <div class="case-study__phases-stage">
+          <section class="case-study__phase">
+            <div>
+              <h3>Phase 1: Google cardboard</h3>
+              <p class="case-study__input">Input: Gaze + single button</p>
+              <ul class="case-study__notes">
+                <li>👍 Highly mobile: Accessible and lightweight. Good for patient education.</li>
+                <li>👎 Way too limited. Laggy with larger models</li>
+              </ul>
+            </div>
+            <video
+              class="case-study__video"
+              src="img/touch-cardboard.mp4"
+              width="640"
+              height="360"
+              poster="img/touch-cardboard-poster.jpg"
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              aria-label="Google Cardboard headset on a desk"
+            ></video>
+          </section>
+
+          <section class="case-study__phase">
+            <div>
+              <h3>Phase 2: DK2 + Leap Motion</h3>
+              <p class="case-study__input">Input: Hands: Pinch, tap, rotate</p>
+              <ul class="case-study__notes">
+                <li>👍 Hardware light: No controller to learn. Basic controls are intuitive</li>
+                <li>👎 Tracking: Unpredictable &amp; imprecise</li>
+              </ul>
+            </div>
+            <video
+              class="case-study__video"
+              src="img/touch-xbox.mp4"
+              width="640"
+              height="360"
+              poster="img/touch-xbox-poster.jpg"
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              aria-label="Pointing in a VR headset at a model on a monitor"
+            ></video>
+          </section>
+
+          <section class="case-study__phase">
+            <div>
+              <h3>Phase 3: Xbox controller</h3>
+              <p class="case-study__input">Input: Analog joystick + buttons</p>
+              <ul class="case-study__notes">
+                <li>👍 Predictable &amp; comfortable. Lots of input options.</li>
+                <li>👎 Difficult to extract substructures. Doctors hated it; felt like gaming (see above quote)</li>
+              </ul>
+            </div>
+            <img
+              class="case-study__video case-study__still"
+              src="img/touch-xbox-controller.jpg"
+              width="1700"
+              height="1700"
+              alt="Xbox controller"
+            />
+          </section>
+
+          <section class="case-study__phase">
+            <div>
+              <h3>Phase 4: Perception neuron glove</h3>
+              <p class="case-study__input">Input: Hands</p>
+              <ul class="case-study__notes">
+                <li>👍 Performant and precise tracking</li>
+                <li>👎 Huge configuration cost. Clunky hardware.</li>
+              </ul>
+            </div>
+            <video
+              class="case-study__video"
+              src="img/touch-glove.mp4"
+              width="640"
+              height="360"
+              poster="img/touch-glove-poster.jpg"
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              aria-label="Perception Neuron glove on a hand"
+            ></video>
+          </section>
+              <div class="case-study__phases-progress" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <p class="case-study__phases-live" aria-live="polite"></p>
+            </div>
+          </div>
+
+          <section class="case-study__winner">
+            <h3>Winner: Oculus Touch + Leap Motion (“Touch Motion”)</h3>
+            <p class="case-study__input">Input: Hands + joystick + buttons</p>
+            <ul class="case-study__notes case-study__notes--row">
+              <li>👍 Immersive and intuitive</li>
+              <li>👎 Button mapping requires coaching. Hand tracking is still imperfect</li>
+            </ul>
+            <video
+              class="case-study__video"
+              src="img/touch-leap.mp4"
+              width="960"
+              height="540"
+              poster="img/touch-leap-poster.jpg"
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              aria-label="Oculus Touch and Leap Motion, with hand tracking shown on a laptop"
+            ></video>
+          </section>
+
+          <section class="case-study__radial">
+            <h3>One-handed radial menu</h3>
+            <img
+              src="img/touch-radial-menu.webp"
+              width="1024"
+              height="385"
+              alt="Button map and trigger radial menu: slicer, annotate, density, and camera on an Oculus Touch controller"
+            />
+            <div class="case-study__split">
+              <div>
+                <p>Challenges:</p>
+                <ul>
+                  <li>Hiding functionality behind buttons resulted in recall challenge</li>
+                  <li>Two-handed menus are slow and require dexterity</li>
+                </ul>
+              </div>
+              <div>
+                <p>Outcome:</p>
+                <ul>
+                  <li>Faster and easily memorized menu selection flow</li>
+                  <li>Fewer human factors issues</li>
+                  <li>MORE new user errors</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <figure class="case-study__figure">
+            <img
+              src="img/touch-menu-panels.webp"
+              width="1024"
+              height="762"
+              alt="Opening the radial menu, selecting a quadrant, how the menu is positioned, and controller shortcuts"
+            />
+          </figure>
+        </article>
       </div>
     </dialog>
   </body>
