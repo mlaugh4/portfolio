@@ -15,7 +15,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=128" />
+    <link rel="stylesheet" href="styles.css?v=138" />
     <script>
       try {
         if (localStorage.getItem("v2-gate") === "1") {
@@ -29,21 +29,26 @@
     <a class="skip" href="#main">Skip to content</a>
 
     <div class="gate" id="gate">
-      <form class="gate__form" data-gate-form>
+      <form class="gate__form" data-gate-form autocomplete="off">
         <div class="gate__mark" aria-hidden="true">
           <img class="gate__blob" src="img/gradient-blob.svg?v=2" alt="" />
           <img class="gate__blob" src="img/gradient-blob.svg?v=2" alt="" />
           <img class="gate__blob" src="img/gradient-blob.svg?v=2" alt="" />
         </div>
         <div class="gate__fields">
-          <label for="gate-password">Password</label>
+          <label for="gate-entry">Password</label>
           <div class="gate__row">
             <input
-              id="gate-password"
-              type="password"
-              name="password"
+              id="gate-entry"
+              type="text"
               placeholder="Password"
-              autocomplete="current-password"
+              autocomplete="off"
+              autocorrect="off"
+              autocapitalize="off"
+              spellcheck="false"
+              data-1p-ignore
+              data-lpignore="true"
+              data-bwignore
               required
               data-gate-input
             />
@@ -55,6 +60,11 @@
           </div>
           <p class="gate__error" data-gate-error hidden>Try again.</p>
         </div>
+        <p class="gate__name">
+          <strong>Mark Winslow</strong>
+          <span>UX designer</span>
+        </p>
+        <a class="gate__request" href="mailto:mwlaugh@gmail.com">Request password</a>
       </form>
     </div>
 
@@ -63,10 +73,6 @@
         <strong>Mark Winslow</strong>
         <span>UX designer</span>
       </a>
-      <p class="topbar__name topbar__name--gate">
-        <strong>Mark Winslow</strong>
-        <span>UX designer</span>
-      </p>
       <a class="topbar__contact" href="#contact">Contact</a>
     </header>
 
@@ -240,6 +246,18 @@
                   Endourology in Vancouver, B.C.
                 </li>
               </ul>
+            </article>
+
+            <article class="highlight-card nodo-card">
+              <p class="nodo-card__kicker">Article</p>
+              <h2>Nodo</h2>
+              <img
+                class="nodo-card__photo"
+                src="img/nodo.png"
+                width="470"
+                height="468"
+                alt="Nodo, a tabby cat looking up"
+              />
             </article>
           </div>
         </div>
@@ -441,13 +459,19 @@
             capture and document issues while they're in the field with limited
             cell service.
           </p>
-          <img
+          <a
             class="store-badge"
-            src="img/app-store.svg"
-            width="120"
-            height="40"
-            alt="Download on the App Store"
-          />
+            href="https://apps.apple.com/us/app/coordinotes/id6815786286"
+            target="_blank"
+            rel="noopener"
+          >
+            <img
+              src="img/app-store.svg"
+              width="120"
+              height="40"
+              alt="Download on the App Store"
+            />
+          </a>
         </div>
 
         <figure class="shot shot--bleed">
@@ -1536,7 +1560,7 @@
           </header>
           <div class="case-study__lead">
             <img
-              class="case-study__video"
+              class="case-study__video case-study__video--gray"
               src="img/touch-challenge.jpg"
               width="1024"
               height="713"
