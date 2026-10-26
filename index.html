@@ -15,7 +15,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=139" />
+    <link rel="stylesheet" href="styles.css?v=141" />
     <script>
       try {
         if (localStorage.getItem("v2-gate") === "1") {
@@ -968,28 +968,47 @@
             />
           </div>
         </div>
-        <div class="deep-dive__text">
+        <div class="deep-dive__text deep-dive__text--solo">
           <div class="deep-dive__copy">
-            <h2 class="deep-dive__heading">Coordinote</h2>
+            <h2 class="deep-dive__heading">Problem</h2>
+            <ul>
+              <li>
+                Due to federal retrenchment, many trail organizations have had to cancel projects, disband trail crews, and delay volunteer projects. PCT is cancelling 56 weeks of planned trail maintenance (<a href="https://aztrail.org/thanks-to-federal-funding-cuts-hiking-organizations-say-trails-will-suffer-this-summer/" target="_blank" rel="noopener">source</a>). Washington Trails Association lost $800,000 in forest service funding. In Oregon, the Deschutes Trails Coalition lost $200k for it’s summer trail crew, and Trailkeepers of Oregon had $500,000 in federal funding stalled, delayed, or in question. (<a href="https://trailkeepersoforegon.org/oregons-trails-are-in-jeopardy/" target="_blank" rel="noopener">trailkeepersoforegon</a>)
+              </li>
+              <li>
+                As a result, many organizations are increasingly reliant on public reports as an issue intake channel
+              </li>
+              <li>
+                Current solutions are antiquated, often relying on clunky web forms or applications that don’t work well in low-service areas
+              </li>
+            </ul>
+            <h2 class="deep-dive__heading">Goals</h2>
             <p>
-              Sole designer and “developer.” Built to help regional trail
-              management organizations document trail issues. Primary function
-              includes location-based notes and photos so crews can quickly
-              capture and document issues while they're in the field with
-              limited cell service.
+              Coordinote is a spatial note-taking app for wanderers. Speed-to-note, overall simplicity, and low-service reliability make it well-suited for issue intake.
             </p>
+            <ul>
+              <li>Extrapolate on it’s core function to makes it as easy as possible for trail-users to log issues.</li>
+              <li>Organizations: Maintain issue coverage/throughput with limited budget.</li>
+              <li>Improve report fidelity.</li>
+            </ul>
+            <h2 class="deep-dive__heading">How it works</h2>
+            <ol>
+              <li>Trail-users or crew members discover app through organization or trailhead activation</li>
+              <li>Issues are logged via text message or direct upload</li>
+              <li>AI: Coordinote takes the image and location and searches coverage zones for managing organization</li>
+              <li>AI: Find contact information or a public facing issue submission form</li>
+              <li>AI: Package report and log it directly with org</li>
+            </ol>
           </div>
-          <dl class="deep-dive__meta">
-            <dt>Role</dt>
-            <dd>Design and iOS development (personal project)</dd>
-            <dt>Status</dt>
-            <dd>In progress</dd>
-            <dt>Link</dt>
-            <dd>
-              <a href="https://github.com/mlaugh4/coordinote-privacy">Privacy policy</a>
-            </dd>
-          </dl>
         </div>
+        <figure class="coord-flow">
+          <img
+            src="img/coordinote-flow.jpg?v=3"
+            width="3646"
+            height="1292"
+            alt="Agentic logging flow. Hikers or crew submit a photo with the date, location, note, and author. Coordinote matches the coordinates to an organization, then emails a form or syncs the packaged issue."
+          />
+        </figure>
       </div>
     </dialog>
 

@@ -1615,6 +1615,25 @@ html.is-locked {
   letter-spacing: -0.03em;
 }
 
+.deep-dive__copy h2:not(:first-child) {
+  margin-top: clamp(2rem, 4vw, 2.75rem);
+}
+
+.coord-flow {
+  width: min(76rem, 100% - 2 * clamp(1.25rem, 11vw, 10rem));
+  margin: clamp(2rem, 5vw, 3.25rem) auto 0;
+}
+
+.coord-flow img {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  padding: 32px;
+  border-radius: 20px;
+  background: var(--bg);
+}
+
 .deep-dive__copy p,
 .deep-dive__copy ol,
 .deep-dive__copy ul {
