@@ -1184,7 +1184,7 @@ html.is-locked {
 }
 
 .frame--turnkey {
-  aspect-ratio: 1485 / 832;
+  aspect-ratio: 1877 / 1055;
   padding: 0;
   background-color: #efeeed;
   background-image: url("img/odin-grid.svg");
@@ -1194,13 +1194,14 @@ html.is-locked {
 
 .frame--turnkey img {
   position: absolute;
-  left: 4%;
-  top: 8.7%;
-  width: 92%;
+  left: 50%;
+  top: 50%;
+  width: 92.06%;
   height: auto;
   max-width: none;
   border-radius: 0;
   box-shadow: none;
+  transform: translate(-50%, -50%);
 }
 
 .frame--sourcing,
