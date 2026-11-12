@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Tusker Grotesk Super";
+  src: url("fonts/TuskerGrotesk-9800Super.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --bg: #faf9f7;
   --ink: #121212;
@@ -357,9 +365,36 @@ html.is-unlocked .topbar {
 }
 
 .topbar__name {
+  display: grid;
+  align-items: center;
+  margin: 0;
+}
+
+.topbar__id,
+.topbar__mark {
+  grid-area: 1 / 1;
+  transition: opacity 0.2s ease;
+}
+
+.topbar__id {
   display: flex;
   gap: 0.6rem;
-  margin: 0;
+}
+
+.topbar__mark {
+  position: relative;
+  justify-self: start;
+  width: 2.25rem;
+  height: 2.25rem;
+  opacity: 0;
+}
+
+.topbar.is-mark .topbar__id {
+  opacity: 0;
+}
+
+.topbar.is-mark .topbar__mark {
+  opacity: 1;
 }
 
 html:not(.is-unlocked) .topbar {
@@ -584,6 +619,16 @@ h3 {
 h1 {
   margin: 0 0 1.75rem;
   font-size: clamp(2.75rem, 7.5vw, 4.75rem);
+}
+
+h1,
+.project__head h2,
+.contact h2 {
+  font-family: "Tusker Grotesk Super", "Arial Narrow", Impact, sans-serif;
+  font-weight: 400;
+  font-size: 3rem;
+  line-height: 76px;
+  letter-spacing: 0;
 }
 
 .lede {

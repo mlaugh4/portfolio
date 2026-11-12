@@ -52,9 +52,18 @@ document.querySelectorAll("[data-year]").forEach((el) => {
 });
 
 const topbar = document.querySelector(".topbar");
-const onScroll = () => topbar.classList.toggle("is-scrolled", window.scrollY > 8);
+const introMark = document.querySelector(".intro-mark");
+const onScroll = () => {
+  topbar.classList.toggle("is-scrolled", window.scrollY > 8);
+  if (!introMark) return;
+  // Swap to the blob once it has scrolled up under the top bar.
+  const passed =
+    introMark.getBoundingClientRect().bottom <= topbar.getBoundingClientRect().bottom;
+  topbar.classList.toggle("is-mark", passed);
+};
 onScroll();
 window.addEventListener("scroll", onScroll, { passive: true });
+window.addEventListener("resize", onScroll);
 
 const shots = [...document.querySelectorAll(".shot")];
 const deckMedia = window.matchMedia(

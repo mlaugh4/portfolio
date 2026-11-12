@@ -15,7 +15,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=144" />
+    <link rel="stylesheet" href="styles.css?v=147" />
     <script>
       try {
         if (localStorage.getItem("v2-gate") === "1") {
@@ -23,7 +23,7 @@
         }
       } catch (error) {}
     </script>
-    <script src="main.js?v=36" defer></script>
+    <script src="main.js?v=39" defer></script>
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
@@ -70,8 +70,15 @@
 
     <header class="topbar">
       <a class="topbar__name" href="#about">
-        <strong>Mark Winslow</strong>
-        <span>UX designer</span>
+        <span class="topbar__id">
+          <strong>Mark Winslow</strong>
+          <span>UX designer</span>
+        </span>
+        <span class="topbar__mark" aria-hidden="true">
+          <img class="intro-mark__blob intro-mark__blob--pink" src="img/blob-pink.webp" alt="" />
+          <img class="intro-mark__blob intro-mark__blob--gold" src="img/blob-gold.webp" alt="" />
+          <img class="intro-mark__blob intro-mark__blob--line" src="img/blob-line.webp" alt="" />
+        </span>
       </a>
       <a class="topbar__contact" href="#contact">Contact</a>
     </header>
@@ -133,21 +140,22 @@
           </div>
           <h1 id="intro-title">Intro</h1>
           <p class="lede">
-            I’m a human product designer in Brooklyn, NY. I shifted into UX
-            after a few years bumbling around pig, sql and excel, and have since
-            spent most of my time in hiring and med tech. Today I’m one of two
-            principal designers in a ~150 person UX org; focused on using AI
-            to make hiring and job hunting less painful and more fair.
+            I’m a human designer and future plumber in Brooklyn. Creatives
+            pulled me out of excel about 12 years ago and have since spent most
+            of my time in hiring and med tech. Today I’m one of two principal
+            designers in a ~150 person UX org; focused on using AI to make
+            hiring and job hunting less painful.
           </p>
           <p class="lede">
-            Earnest people, potent coffee, and post-its are core to my
+            Earnest people, potent coffee, and pet cameos are core to my
             professional love language.
           </p>
           <p class="aside">
-            Currently: Principal UX at <a href="#odin">Indeed</a>.
+            Current: Principal UX at <a href="#odin">Indeed</a>.
           </p>
           <p class="aside">
-            Recent projects: Build guild (coming soon) •
+            Recent projects:
+            <a href="https://mlaugh4.github.io/build-guild/" target="_blank" rel="noopener">Build guild</a> •
             <a href="#coordinote">Coordinote app</a> •
             <a href="#preptrack">PrepTrack</a>
           </p>
@@ -159,11 +167,11 @@
               <h2>Highlights</h2>
               <ul>
                 <li>
-                  Received Hyams/CEO award at Indeed 5 of 6 years it was offered.
+                  Hyams/CEO award at Indeed 5 of 6 years it was offered.
                   Awarded to top 5% performers.
                 </li>
                 <li>
-                  Led ground-up design of Indeed’s first agentic screening offering.
+                  Led design of Indeed’s first agentic screening product from the ground up.
                   Product is now used by 5.8k enterprise employers and millions of
                   job seekers
                 </li>
